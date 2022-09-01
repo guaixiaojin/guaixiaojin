@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/minireset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="bg">
+        <div class="clock">
+            <div class="clock-two">
+                <div class="hour">
+                    <div class="hr" id="hr"></div>
+                </div>
+                <div class="min">
+                    <div class="mn" id="mn"></div>
+                </div>
+                <div class="sec">
+                    <div class="sc" id="sc"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var deg = 6;
+        var hr = document.querySelector('.hr');
+        var mn = document.querySelector('.mn');
+        var sc = document.querySelector('.sc');
+        var day = new Date();
+        var hh = day.getHours() * 30;
+        var mm = day.getMinutes() * deg;
+        var ss = day.getSeconds() * deg;
+        hr.style.transform = `rotateZ(${hh+(mm/12)}deg)`;
+        mn.style.transform = `rotateZ(${mm}deg)`;
+        sc.style.transform = `rotateZ(${ss}deg)`;
+        setInterval(() => {
+            var day = new Date();
+            var hh = day.getHours() * 30;
+            var mm = day.getMinutes() * deg;
+            var ss = day.getSeconds() * deg;
+            hr.style.transform = `rotateZ(${hh+(mm/12)}deg)`;
+            mn.style.transform = `rotateZ(${mm}deg)`;
+            sc.style.transform = `rotateZ(${ss}deg)`;
+        }, 1000)
+    </script>
+</body>
+
+</html>

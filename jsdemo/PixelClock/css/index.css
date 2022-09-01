@@ -1,0 +1,61 @@
+.boxs {
+  width: 1200px;
+  height: 240px;
+  display: flex;
+  transform: translate(15%, 65%);
+  justify-content: space-between;
+}
+.boxs .hour,
+.boxs .minute,
+.boxs .second {
+  width: 260px;
+  height: 200px;
+  padding: 40px;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: inset 0 20px 40px #a4bdfa;
+  justify-content: space-between;
+  background-color: #000;
+}
+.boxs .hour .box,
+.boxs .minute .box,
+.boxs .second .box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.boxs .hour .box .ten,
+.boxs .minute .box .ten,
+.boxs .second .box .ten,
+.boxs .hour .box .single,
+.boxs .minute .box .single,
+.boxs .second .box .single {
+  width: 120px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.boxs .hour .box .ten .piece,
+.boxs .minute .box .ten .piece,
+.boxs .second .box .ten .piece,
+.boxs .hour .box .single .piece,
+.boxs .minute .box .single .piece,
+.boxs .second .box .single .piece {
+  width: 33%;
+  height: 40px;
+  transform: scale(0.5);
+  transition: all 0.5s ease-out;
+}
+.boxs .hour .box .ten .active,
+.boxs .minute .box .ten .active,
+.boxs .second .box .ten .active,
+.boxs .hour .box .single .active,
+.boxs .minute .box .single .active,
+.boxs .second .box .single .active {
+  box-shadow: inset 0 10px 20px #fff;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  background-color: skyblue;
+  transform: scale(1);
+}
+/*# sourceMappingURL=./index.css.map */

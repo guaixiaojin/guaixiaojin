@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/minireset.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--1 #f63a59 -->
+    <!--2 #3e40c7 -->
+    <!--3 #0dc069 -->
+    <!--4 #11bcfa -->
+    <!--5 #ffa603 -->
+    <div class="box">
+        <span class="bg"></span>
+        <ul class="tab">
+            <li><i class="fa fa-home"></i><span>Home</span></li>
+            <li><i class="fa fa-user"></i><span>Profile</span></li>
+            <li><i class="fa fa-comment"></i><span>Message</span></li>
+            <li><i class="fa fa-question-circle"></i><span>help</span></li>
+            <li><i class="fa fa-cog"></i><span>Settings</span></li>
+        </ul>
+    </div>
+    <script>
+        var tab = document.querySelector('.tab');
+        var li = tab.querySelectorAll('li');
+        var bg = document.querySelector('.bg');
+        for (var i = 0; i < li.length; i++) {
+            li[i].title = i
+            li[i].onclick = function() {
+                var index = Number(this.title);
+                bg.style.top = 15 + (index * 80) + "px";
+                switch (index) {
+                    case 0:
+                        bg.style.backgroundColor = "#f63a59";
+                        document.body.style.backgroundColor = "#f63a59";
+                        break;
+                    case 1:
+                        bg.style.backgroundColor = "#3e40c7";
+                        document.body.style.backgroundColor = "#3e40c7";
+                        break;
+                    case 2:
+                        bg.style.backgroundColor = "#0dc069";
+                        document.body.style.backgroundColor = "#0dc060";
+                        break;
+                    case 3:
+                        bg.style.backgroundColor = "#11bcfa";
+                        document.body.style.backgroundColor = "#11bcfa";
+                        break;
+                    case 4:
+                        bg.style.backgroundColor = "#ffa603";
+                        document.body.style.backgroundColor = "#ffa603";
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

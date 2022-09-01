@@ -1,0 +1,13 @@
+整体的背景颜色
+url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='white' fill-opacity='0.15' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E"), linear-gradient(to bottom right, dodgerblue, hotpink);
+
+
+jquery:
+https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js
+
+标题：
+关于bilibili创作公约
+
+内容：
+哔哩哔哩有权根据法律法规、监管政策、行业规范以及哔哩哔哩经营策略的调整变化，单方变更、中止、终止本公约内容，并在相关页面进行公布。
+前述内容一经在相关的页面上公布即有效代替原来的公约内容，同时哔哩哔哩将以适当的方式（包括但不限于弹窗、邮件、站内信、系统通知、平台通知、网站公告等）提醒您更新后的内容，以便您及时了解本公约的最新版本。

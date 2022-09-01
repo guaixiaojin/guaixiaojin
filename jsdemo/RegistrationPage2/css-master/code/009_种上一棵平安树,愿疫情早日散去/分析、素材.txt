@@ -1,0 +1,13 @@
+引入外部字体
+https://fonts.googleapis.com/css2?family=Quicksand&display=swap
+
+树根部的2种颜色
+#48AE27 #56453D
+
+6片叶子的颜色
+#6AD549
+#55CB2D
+#48AE27
+#3D9120
+#2F7418
+#235714

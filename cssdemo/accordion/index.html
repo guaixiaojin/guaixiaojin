@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/minireset.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li class="setst">
+                <input type="radio" name="setst" checked>
+                <div class="bg"></div>
+            </li>
+            <li class="setst">
+                <input type="radio" name="setst">
+                <div class="bg"></div>
+            </li>
+            <li class="setst">
+                <input type="radio" name="setst">
+                <div class="bg"></div>
+            </li>
+            <li class="setst">
+                <input type="radio" name="setst">
+                <div class="bg"></div>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var setst = document.querySelectorAll('.setst');
+        var bg = document.querySelectorAll('.bg');
+        setst.forEach(function(item, i) {
+            item.onclick = function() {
+                setst.forEach(function(items, index) {
+                    if (index == i) {
+                        items.style.width = "700px";
+                    } else {
+                        items.style.width = "100px";
+                    }
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

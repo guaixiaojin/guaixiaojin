@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+    <style>
+        .box2 {
+            width: 500px;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 50%;
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        .box {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background-color: pink;
+            display: flex;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotate(0deg);
+            /* transition: all; */
+        }
+        
+        .box .bg {
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            overflow: hidden;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: url(./bg.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+        
+        .box .left {
+            width: 50%;
+            height: 100%;
+            background-color: blue;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .box .right {
+            width: 250px;
+            height: 100%;
+            background-color: red;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .left div,
+        .right div {
+            position: absolute;
+            width: 250px;
+            height: 100%;
+        }
+        
+        .left div {
+            transform-origin: right center;
+        }
+        
+        .right div {
+            transform-origin: left center;
+        }
+        
+        .left div.one {
+            background-color: #fc7c7b;
+            transform: rotate(0deg);
+        }
+        
+        .left div.one .text {
+            /* content: "金龙鱼"; */
+            position: absolute;
+            bottom: 50px;
+            left: 150px;
+            transform: rotate(200deg);
+            z-index: 5;
+        }
+        
+        .left div.two {
+            background-color: #f59462;
+            transform: rotate(45deg);
+        }
+        
+        .left div.two .text {
+            /* content: "中昌"; */
+            position: absolute;
+            bottom: 50px;
+            left: 150px;
+            transform: rotate(200deg);
+            z-index: 5;
+        }
+        
+        .left div.there .text {
+            /* content: "白云边"; */
+            position: absolute;
+            bottom: 50px;
+            left: 150px;
+            transform: rotate(200deg);
+            z-index: 5;
+        }
+        
+        .left div.four .text {
+            /* content: "金沙河"; */
+            position: absolute;
+            bottom: 50px;
+            left: 150px;
+            transform: rotate(200deg);
+            z-index: 5;
+        }
+        
+        .left div.there {
+            background-color: #fc7c7b;
+            transform: rotate(90deg);
+        }
+        
+        .left div.four {
+            background-color: #f59462;
+            transform: rotate(135deg);
+        }
+        
+        .right div.one {
+            background-color: #fc7c7b;
+            transform: rotate(0deg);
+        }
+        
+        .right div.one .text {
+            /* content: "康师傅"; */
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            transform: rotate(20deg);
+            z-index: 5;
+        }
+        
+        .right div.two {
+            background-color: #f59462;
+            transform: rotate(45deg);
+        }
+        
+        .right div.two .text {
+            /* content: "奥星"; */
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            transform: rotate(20deg);
+            z-index: 5;
+        }
+        
+        .right div.there {
+            background-color: #fc7c7b;
+            transform: rotate(90deg);
+        }
+        
+        .right div.there .text {
+            /* content: "脉动"; */
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            transform: rotate(20deg);
+            z-index: 5;
+        }
+        
+        .right div.four {
+            background-color: #f59462;
+            transform: rotate(135deg);
+        }
+        
+        .right div.four .text {
+            /* content: "雪花"; */
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            transform: rotate(20deg);
+            z-index: 5;
+        }
+        
+        .btn {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            color: #fff;
+            background-color: orange;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            cursor: pointer;
+            border: 0;
+            font-weight: bold;
+            font-size: 20px;
+            transition: all 0.5s ease-out;
+            outline: none;
+            box-shadow: inset 0 -20px 25px rgba(255, 255, 255, .5), inset 0 20px 25px rgba(255, 255, 255, .5);
+        }
+        
+        .btn::before {
+            content: "";
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            z-index: 888;
+            transform: translate(-50%, 0);
+            border-right: 10px solid transparent;
+            border-left: 10px solid transparent;
+            border-bottom: 20px solid #ffbf4c;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box2">
+        <button class="btn">抽奖</button>
+        <div class="box">
+            <div class="bg"></div>
+            <div class="left">
+                <div class="one"><span class="text"></span></div>
+                <div class="two"><span class="text"></span></div>
+                <div class="there"><span class="text"></span></div>
+                <div class="four"><span class="text"></span></div>
+            </div>
+            <div class="right">
+                <div class="one"><span class="text"></span></div>
+                <div class="two"><span class="text"></span></div>
+                <div class="there"><span class="text"></span></div>
+                <div class="four"><span class="text"></span></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var textarr = ["金龙鱼", "中昌", "白云边", "金沙河", "康师傅", "奥星", "脉动", "雪花"];
+        // var btn = document.querySelector('.btn');
+        var box = document.querySelector('.box')
+            // for (var i = 0; i < $('.text').length; i++) {
+            //     $('.text').html(textarr[i]);
+            // }
+        $('.text').each(function(i, ele) {
+            $(ele).html(textarr[i]);
+        })
+        var textarr2 = [1, 10, 22, 30, 50, 78, 85, 100];
+        $('.btn').click(function() {
+            // btn.style.backgroundColor = '#ccc';
+            // btn.disabled = true;
+            $('.btn').css('backgroundColor', '#ccc');
+            $('.btn').attr('disabled', true);
+            // 中奖概率
+            var random = parseInt(Math.random() * 100);
+            var aa = textarr2.concat(random);
+            aa = aa.sort(function(a, b) {
+                return a - b;
+            });
+            var aaIndex = aa.indexOf(random);
+            switch (aaIndex) {
+                case 0:
+                    run(160, textarr[aaIndex])
+                    break;
+                case 1:
+                    run(113, textarr[aaIndex])
+                    break;
+                case 2:
+                    run(70, textarr[aaIndex])
+                    break;
+                case 3:
+                    run(25, textarr[aaIndex])
+                    break;
+                case 4:
+                    run(340, textarr[aaIndex])
+                    break;
+                case 5:
+                    run(297, textarr[aaIndex])
+                    break;
+
+                case 6:
+                    run(250, textarr[aaIndex])
+                    break;
+                case 7:
+                    run(204, textarr[aaIndex])
+                    break;
+                default:
+                    break;
+            }
+        });
+
+        // var timer = null;
+
+        function run(deg, text) {
+            var num = 0;
+            var bacse = 1800;
+            var timer = setInterval(() => {
+                if (num >= (deg + bacse)) {
+                    clearInterval(timer);
+                    // btn.disabled = false;
+                    $('.btn').attr('disabled', false);
+                    setTimeout(function() {
+                        // btn.style.backgroundColor = 'orange';
+                        $('.btn').css('backgroundColor', 'orange');
+                        alert('恭喜你获得了' + text + "一个!!");
+                    }, 500);
+                    // num = 0;
+                }
+                // box.style.transform = "rotate(" + num + "deg)";
+                num += Math.ceil((bacse + deg - num) * 0.03);
+                $('.box').css('transform', "rotate(" + num + "deg)");
+            }, 50);
+        }
+    </script>
+</body>
+
+</html>

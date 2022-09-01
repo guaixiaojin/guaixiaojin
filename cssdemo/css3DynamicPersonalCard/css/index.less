@@ -1,0 +1,132 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: #343334;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navigation{
+    width: 300px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 10px;
+    transition: all 0.3s ease-out;
+    overflow: hidden;
+    &.active{
+        width: 60px;
+        height: 380px;
+        transform-origin: top left;
+        .menu_toggle::before{
+            transform: translateY(-10px) rotate(0deg);
+        }
+        .menu_toggle::after{
+            transform: translateY(0px) rotate(0deg);
+            box-shadow: 0px 10px #000;
+        }
+        .profile{
+            height: 80px;
+            .imgBx{
+                img{
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+        }
+        .menu{
+            li{
+                a{
+                    width: 40px;
+                }
+            }
+        }
+    }
+    .menu_toggle{
+       position: relative;
+       width: 100%;
+       height: 40px;
+       display: flex;
+       align-items: center;
+       padding:0 13px;
+       cursor: pointer;
+    }
+    .menu_toggle::before{
+        position: absolute;
+        content: "";
+        width: 35px;
+        height: 3px;
+        background-color: #000;
+        transform: translateY(0px) rotate(45deg);
+        transition: all 0.5s ease-out;
+    }
+    .menu_toggle::after{
+        position: absolute;
+        content: "";
+        width: 35px;
+        height: 3px;
+        background-color: #000;
+        transform: translateY(0px) rotate(-45deg);
+        transition: all 0.5s ease-out;
+        box-shadow: 0px 0px #000;    
+    }
+    .profile{
+        width: 100%;
+        height: 200px;
+        border-top:1px solid #ccc ;
+        border-bottom:1px solid #ccc ;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s ease-out;
+        .imgBx{
+            overflow: hidden;
+            img{
+               height: 180px;
+               border-radius: 50%;
+               transition: all 0.3s ease-out;
+            }
+        }
+    }
+    .menu{
+        width: 100%;
+        height: 100%;
+        
+       li{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        transition: all 0.3s ease-out;
+        a{
+            position: relative;
+            color: #111111;
+            display: block;
+            width: 260px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease-out;
+            span{
+                width: 50px;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                i{
+                    
+                }
+            }
+            .text{
+                position: absolute;
+                left: 60px;
+            }
+        }
+        a:hover{
+            background-color: skyblue;
+        }
+       }
+    }
+}

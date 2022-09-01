@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="./css/body五彩斑斓.css"> -->
+    <link rel="stylesheet" href="./css/minireset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <div class="mark">
+            <h1>WELCOME</h1>
+            <span>JOLN USI</span>
+            <div>
+                <img src="./image/1.gif" alt="">
+            </div>
+        </div>
+        <div class="input-left">
+            <h1>注册</h1>
+            <form action="" method="post">
+                <input type="text" name="" id="reguser" placeholder="账号" autocomplete="off">
+                <div class="title">必须是开头<span>首字母</span>且<span>6-12位</span>的组成的字母和数字</div>
+                <input type="text" name="" id="regpassword" placeholder="密码" autocomplete="off"><br>
+                <div class="title2">必须是开头<span>首2位字母</span>且<span>6-12位</span>的组成的字母和数字</div>
+                <input type="email" name="" id="email" placeholder="邮箱" autocomplete="off"><br>
+                <div class="title3">必须是以<span>邮箱格式@ .</span>组成的邮箱账号</div>
+                <input type="text" name="" id="phone" placeholder="手机号" autocomplete="off"><br>
+                <div class="title4">必须是以<span>13|14|15|18</span>开头且<span>11位</span>组成的号码</div>
+                <button class="regsub">注册</button>
+                <a class="register" href="#">已有账号?去登录</a>
+            </form>
+        </div>
+        <div class="input-right">
+            <h1>登录</h1>
+            <form action="" method="post">
+                <input type="text" name="" id="user" placeholder="账号" autocomplete="off">
+                <input type="password" name="" id="password" placeholder="密码" autocomplete="off"><br>
+                <div class="image"><img src="./image/down.png" alt=""></div>
+                <button>登录</button>
+                <a class="login" href="#">没有账号?去注册</a>
+            </form>
+        </div>
+    </div>
+    <script>
+        var mark = document.querySelector('.mark');
+        var markImg = mark.querySelector('div>img');
+        var register = document.querySelector('.register');
+        var login = document.querySelector('.login');
+        var image = document.querySelector('.image');
+        var img = image.querySelector('img');
+        var password = document.querySelector('#password');
+        var title = document.querySelector('.title');
+        var title2 = document.querySelector('.title2');
+        var title3 = document.querySelector('.title3');
+        var title4 = document.querySelector('.title4');
+        var reguser = document.getElementById('reguser');
+        var regpassword = document.getElementById('regpassword');
+        var email = document.getElementById('email');
+        var phone = document.getElementById('phone');
+        var regsub = document.querySelector('.regsub');
+        var flag = true;
+        register.onclick = function() {
+            mark.style.transform = 'translateX(0px)';
+            mark.style.backgroundColor = '#fbd5d8';
+            markImg.src = './image/1.gif';
+            title.style.transform = 'translateX(0px)';
+            title.style.opacity = 0;
+            title2.style.transform = 'translateX(0px)';
+            title2.style.opacity = 0;
+            title3.style.transform = 'translateX(0px)';
+            title3.style.opacity = 0;
+            title4.style.transform = 'translateX(0px)';
+            title4.style.opacity = 0;
+        }
+        login.onclick = function() {
+            mark.style.transform = 'translateX(300px)';
+            mark.style.backgroundColor = '#bee0f2';
+            markImg.src = './image/2.jpg';
+        }
+        image.onclick = function() {
+            if (flag) {
+                img.src = './image/open.png';
+                password.type = 'text';
+                flag = false
+            } else {
+                img.src = './image/down.png';
+                password.type = 'password';
+                flag = true
+            }
+        }
+        reguser.onblur = function() {
+            var reguserver = /^[a-zA-Z]{1}\w{5,11}$/;
+            if (!reguserver.test(reguser.value) && reguser.value != "") {
+                title.style.transform = 'translateX(40px)';
+                title.style.opacity = 1;
+            } else {
+                title.style.transform = 'translateX(0px)';
+                title.style.opacity = 0;
+            }
+        }
+        regpassword.onblur = function() {
+            var regpasswordver = /^[a-zA-Z]{2}\w{4,10}$/;
+            if (!regpasswordver.test(regpassword.value) && regpassword.value != "") {
+                title2.style.transform = 'translateX(-40px)';
+                title2.style.opacity = 1;
+                // title2.title.display = 'block';
+            } else {
+                title2.style.transform = 'translateX(0px)';
+                title2.style.opacity = 0;
+                // title2.title.display = 'none';
+            }
+        }
+        email.onblur = function() {
+            var regemailver = /\w[-\w.+]*@([A-Za-z|0-9][-A-Za-z|0-9]+\.)+[A-Za-z]{2,14}/
+            console.log(email.value);
+            console.log(regemailver.test(email.value));
+            if (!regemailver.test(email.value) && email.value != '') {
+                title3.style.transform = 'translateX(40px)';
+                title3.style.opacity = 1;
+            } else {
+                title3.style.transform = 'translateX(0px)';
+                title3.style.opacity = 0;
+            }
+        }
+        phone.onblur = function() {
+            var regphonever = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+            if (!regphonever.test(phone.value) && phone.value != '') {
+                title4.style.transform = 'translateX(-40px)';
+                title4.style.opacity = 1;
+                // title4.title.display = 'block';
+            } else {
+                title4.style.transform = 'translateX(0px)';
+                title4.style.opacity = 0;
+                // title4.title.display = 'none';
+            }
+        };
+        regsub.onclick = function(e) {
+            var reguserver = /^[a-zA-Z]{1}\w{5,11}$/;
+            var regpasswordver = /^[a-zA-Z]{2}\w{4,10}$/;
+            var regemailver = /\w[-\w.+]*@([A-Za-z|0-9][-A-Za-z|0-9]+\.)+[A-Za-z]{2,14}/
+            var regphonever = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+            if (!reguserver.test(reguser.value) && !regpasswordver.test(regpassword.value) && !regemailver.test(email.value) && !regphonever.test(phone.value)) {
+                e.preventDefault();
+            }
+        };
+        // 生成泡泡
+        function bubleCreate() {
+            var body = document.body;
+            var div = document.createElement('div');
+            var random = Math.random() * 5 + 25;
+            div.style.width = random + 'px';
+            div.style.height = random + 'px';
+            div.style.left = Math.random() * window.innerWidth + 'px'
+            div.className = 'buble';
+            body.appendChild(div);
+            setInterval(function() {
+                div.remove();
+            }, 4000)
+        }
+        setInterval(function() {
+            bubleCreate();
+        }, 200);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+.box{
+    width: 700px;
+    height: 700px;
+    margin: 0 auto;
+    ul{
+        width: 600px;
+        height: 400px;
+        position: relative;
+        li{
+            list-style: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        li:target{
+            display: block;
+        }
+    }
+    ol{
+        width: 600px;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        li{
+            width: 100px;
+            height: 100px;
+            list-style: none;
+        }
+    }
+}

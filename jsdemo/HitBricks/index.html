@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./minireset.css">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .box {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+            position: relative;
+            box-sizing: border-box;
+        }
+        
+        .ball {
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 28px;
+            left: 250px;
+        }
+        
+        .bat {
+            width: 100px;
+            height: 20px;
+            background-color: skyblue;
+            position: absolute;
+            bottom: 0;
+            left: 200px;
+        }
+        
+        .brick div {
+            width: 100%;
+        }
+        
+        .brick div {
+            width: 99px;
+            height: 20px;
+            border: 1px solid #000;
+            float: left;
+        }
+        
+        .score {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            font-size: 40px;
+            font-weight: bold;
+            z-index: 10;
+            pointer-events: none;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .score .num {
+            display: block;
+            width: 30px;
+            height: 40px;
+        }
+        
+        .num0 {
+            background-image: url(./bd46b88b-305d-4c09-a696-e5d01bbc9564.png);
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            background-position-x: 0px;
+        }
+        
+        .num1 {
+            background-image: url(./bd46b88b-305d-4c09-a696-e5d01bbc9564.png);
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            background-position-x: -35px;
+        }
+        
+        .num2 {
+            background-image: url(./bd46b88b-305d-4c09-a696-e5d01bbc9564.png);
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            background-position-x: -65px;
+        }
+        
+        .num3 {
+            background-image: url(./bd46b88b-305d-4c09-a696-e5d01bbc9564.png);
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            background-position-x: -96px;
+        }
+        
+        .num4 {
+            background-image: url(./bd46b88b-305d-4c09-a696-e5d01bbc9564.png);
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            background-position-x: -130px;
+        }
+        
+        .num5 {
+            background-image: url(./bd46b88b-305d-4c09-a696-e5d01bbc9564.png);
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            background-position-x: -162px;
+        }
+        
+        .num6 {
+            background-image: url(./bd46b88b-305d-4c09-a696-e5d01bbc9564.png);
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            background-position-x: -193px;
+        }
+        
+        .num7 {
+            background-image: url(./bd46b88b-305d-4c09-a696-e5d01bbc9564.png);
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            background-position-x: -225px;
+        }
+        
+        .num8 {
+            background-image: url(./bd46b88b-305d-4c09-a696-e5d01bbc9564.png);
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            background-position-x: -258px;
+        }
+        
+        .num9 {
+            background-image: url(./bd46b88b-305d-4c09-a696-e5d01bbc9564.png);
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            background-position-x: -290px;
+        }
+        
+        .start {
+            width: 100%;
+            height: 150px;
+            line-height: 150px;
+            text-align: center;
+            background-color: #ccc;
+            font-size: 40px;
+            font-weight: bold;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            cursor: pointer;
+        }
+        
+        .over {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 0, 0, 0.423);
+            text-align: center;
+            line-height: 500px;
+            font-size: 60px;
+            font-weight: bold;
+            color: #fff;
+            display: none;
+            z-index: 2;
+        }
+        
+        .over button {
+            position: absolute;
+            top: 60%;
+            left: 38%;
+            border: 0;
+            outline: none;
+            width: 100px;
+            height: 40px;
+            z-index: 10;
+            font-size: 16px;
+        }
+        
+        .over .title {
+            position: absolute;
+            top: 40%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            height: 40px;
+            font-size: 20px;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="ball"></div>
+        <div class="bat"></div>
+        <div class="brick" id="brick">
+            <!-- <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div> -->
+        </div>
+        <div class="score"><i class="num num0"></i></div>
+        <div class="start">开始游戏</div>
+        <div class="over"><span>game over</span><button class="btn">重新开始</button>
+            <div class="title">0</div>
+        </div>
+    </div>
+    <script>
+        var box = document.querySelector('.box');
+        var ball = document.querySelector('.ball');
+        var bat = document.querySelector('.bat');
+        var brick = document.getElementById('brick');
+        var bricks = brick.getElementsByTagName('div');
+        var start = document.querySelector('.start');
+        var over = document.querySelector('.over');
+        var btn = document.querySelector('.btn');
+        var score = document.querySelector('.score');
+        var title = document.querySelector('.title');
+        var randomX = parseInt(Math.random() * 4 + 7);
+        var randomY = -(parseInt(Math.random() * 2 + 10));
+        var num = 0;
+        createBrick(50);
+        start.onclick = function() {
+            start.style.display = 'none';
+            var id = setInterval(function() {
+                ball.style.left = ball.offsetLeft + randomX + 'px';
+                ball.style.top = ball.offsetTop + randomY + 'px';
+                if (ball.offsetLeft >= box.offsetWidth - ball.offsetWidth || ball.offsetLeft <= 0) {
+                    randomX *= -1;
+                }
+                if (ball.offsetTop <= 0) {
+                    randomY *= -1;
+                }
+                if (ball.offsetTop >= box.offsetHeight - ball.offsetHeight) {
+                    clearInterval(id);
+                    over.style.display = 'block'
+                    title.innerHTML = '你的分数为:<strong>' + num + '</strong>分';
+                }
+                // 碰撞测试
+                if (konck(ball, bat)) {
+                    randomY *= -1
+                }
+                for (var i = 0; i < bricks.length; i++) {
+                    if (konck(bricks[i], ball)) {
+                        randomY *= -1
+                        brick.removeChild(bricks[i]);
+                        num++;
+                        score.innerHTML = '';
+                        String(num).split("").forEach((n) => {
+                            var i = document.createElement("i");
+                            i.classList.add('num', 'num' + n);
+                            score.appendChild(i);
+                        })
+                    }
+                }
+            }, 30);
+        }
+        bat.onmousedown = function(e) {
+            var offestX = e.clientX - bat.offsetLeft
+                // console.log(e.clientX);
+            document.onmousemove = function(e) {
+                var x = e.clientX - offestX
+                if (x >= box.offsetWidth - bat.offsetWidth) {
+                    x = box.offsetWidth - bat.offsetWidth
+                }
+                if (x <= 0) {
+                    x = 0
+                }
+                bat.style.left = x + 'px';
+
+            }
+            document.onmouseup = function() {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        }
+
+        function createBrick(n) {
+            for (var i = 0; i < n; i++) {
+                var div = document.createElement('div');
+                div.style.backgroundColor = randomColor();
+                brick.appendChild(div);
+            }
+            var bricks = brick.getElementsByTagName('div');
+            for (var i = 0; i < bricks.length; i++) {
+                bricks[i].style.left = bricks[i].offsetLeft + 'px';
+                bricks[i].style.top = bricks[i].offsetTop + 'px';
+            }
+            for (var i = 0; i < bricks.length; i++) {
+                bricks[i].style.position = 'absolute';
+            }
+        }
+
+        function randomColor() {
+            var str = "rgba(" + parseInt(Math.random() * 256) + "," + parseInt(Math.random() * 256) + "," + parseInt(Math.random() * 256) + "," + Math.random() + ")";
+            return str
+        }
+        // 碰撞函数
+        function konck(div1, div2) {
+            var l1 = div1.offsetLeft;
+            var r1 = div1.offsetLeft + div1.offsetWidth;
+            var t1 = div1.offsetTop;
+            var b1 = div1.offsetTop + div1.offsetHeight;
+
+            var l2 = div2.offsetLeft;
+            var r2 = div2.offsetLeft + div2.offsetWidth;
+            var t2 = div2.offsetTop;
+            var b2 = div2.offsetTop + div2.offsetHeight;
+
+            if (l2 > r1 || r2 < l1 || t2 > b1 || b2 < t1) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        btn.onclick = function() {
+            over.style.display = 'none';
+            document.location.reload();
+        }
+    </script>
+</body>
+
+</html>

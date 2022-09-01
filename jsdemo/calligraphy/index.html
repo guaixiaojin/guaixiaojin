@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./my-minireset.css">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 600px;
+            height: 600px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            text-align: center;
+            align-items: center;
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+        
+        .box .center {
+            width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: orange;
+            color: azure;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: inset 0 -20px 25px rgba(255, 255, 255, .5), inset 0 20px 25px rgba(255, 255, 255, .5);
+            border: 0;
+            outline: none;
+        }
+        
+        .box li:nth-of-type(4) {
+            position: relative;
+            left: 420px;
+        }
+        
+        .box li:nth-of-type(5) {
+            position: relative;
+            bottom: -200px;
+        }
+        
+        .box li:nth-of-type(6) {
+            position: relative;
+            left: 210px;
+        }
+        
+        .box li:nth-of-type(7) {
+            position: relative;
+            left: -210px;
+        }
+        
+        .box li:nth-of-type(8) {
+            position: relative;
+            top: -200px;
+            left: -420px;
+        }
+        
+        .box li {
+            list-style: none;
+            width: 180px;
+            height: 180px;
+            background-color: skyblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: azure;
+            box-shadow: inset 0 -20px 25px rgba(255, 255, 255, .5), inset 0 20px 25px rgba(255, 255, 255, .5);
+        }
+        
+        .text {
+            width: 400px;
+            border-radius: 10px;
+            height: 60px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .5), inset 0 10px 25px #ccc;
+            margin: 0 auto;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text"></div>
+    <div class="box">
+        <li>手机</li>
+        <li>平板</li>
+        <li>电磁炉</li>
+        <li>电视</li>
+        <button class="center">开始</button>
+        <li>洗衣机</li>
+        <li>电脑</li>
+        <li>冰箱</li>
+        <li>衣柜</li>
+    </div>
+    <script>
+        var boxli = document.querySelectorAll('.box>li');
+        var center = document.querySelector('.center')
+        var text = document.querySelector('.text');
+        console.log(boxli);
+        var num = -1
+            // center.onclick = function() {
+            //     center.disabled = true;
+            //     this.style.backgroundColor = '#ccc';
+            //     var timer = setInterval(function() {
+            //         num++;
+            //         for (var i = 0; i < boxli.length; i++) {
+            //             boxli[i].style.backgroundColor = 'skyblue';
+            //         }
+            //         if (num == boxli.length) {
+            //             num = 0;
+            //         }
+            //         boxli[num].style.backgroundColor = 'brown';
+            //     }, 100);
+            //     setTimeout(() => {
+            //         clearInterval(timer);
+            //         text.innerHTML = '恭喜你获得' + boxli[num].innerText + "一个!";
+            //         center.disabled = false;
+            //         this.style.backgroundColor = 'orange';
+            //         num = -1
+            //     }, Math.floor(Math.random() * 20000));
+            // }
+        function showIndex(n) {
+            boxli.forEach((item, index) => {
+                if (n === index) {
+                    boxli[index].style.backgroundColor = 'brown';
+                } else {
+                    boxli[index].style.backgroundColor = 'skyblue';
+                }
+            })
+        }
+        center.onclick = function() {
+            var num = Math.floor(Math.random() * 8)
+
+            function showNext(n, time) {
+                setTimeout(function() {
+                    showIndex(n % 8)
+                    n++;
+                    if (n < 8) {
+                        time -= 140;
+                    }
+
+                    if (n > 75) {
+                        time += 140;
+                    }
+                    if (n < 8 + 8 + 8 + 8 + 8 + 8 + 8 + 8 + 8 + 8 + num) {
+                        showNext(n, time)
+                    } else {
+                        text.innerHTML = '恭喜你获得' + boxli[num - 1].innerText + "一个!";
+                    }
+                }, time)
+            }
+            showNext(0, 1000);
+        }
+    </script>
+</body>
+
+</html>

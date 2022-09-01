@@ -1,0 +1,201 @@
+/* 引入外部字体 */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+*{
+    /* 外边距 */
+    margin: 0;
+    /* 内边距 */
+    padding: 0;
+    /* 盒模型 */
+    box-sizing: border-box;
+}
+body{
+    /* 字体 */
+    font-family: 'Quicksand',sans-serif;
+    /* 可视高度100% */
+    min-height: 100vh;
+    /* grid网格布局 居中 */
+    display: grid;
+    place-items: center;
+    /* 内边距 */
+    padding: 2rem;
+    /* 背景 径向渐变 */
+    background-image: radial-gradient(circle at center,lightgreen,darkgreen,black);
+
+}
+
+/* 树 */
+.ul-plant{
+    /* 定义变量 */
+    --leaf-width:1fr;
+    --stem-width:0.5rem;
+    /* 列间距变量 */
+    --col-gap:2rem;
+    /* 行间距变量 */
+    --row-gap:calc(var(--col-gap)/2);
+    /* grid网格布局 */
+    display: grid;
+    /* 2列,每列距离相等 */
+    grid-template-columns: repeat(2,var( --leaf-width));
+    /* 字体大小为根元素字体的1.2倍 */
+    font-size: 1.2rem;
+    /* 行间距1rem\ 列间距 2rem */
+    gap:var(--row-gap) var(--col-gap);
+    /* 相对定位,为子元素提供相对定位的父元素 */
+    position: relative;
+    /* 文字阴影 */
+    text-shadow:  0 0 0.25rem black;
+}
+
+/* 树根部 */
+.ul-plant::after{
+    content: "";
+    /* 宽高比 */
+    aspect-ratio: 1/1;
+}
+.ul-plant::before{
+    /* 定义变量 */
+    --p1:25%;
+
+    content: "";
+    /* 定位在底部中间 */
+    position: absolute;
+    bottom: 0;
+    transform: translateX(50%);
+    height: calc(var(--stem-width)*3);
+
+    width: 50%;
+    background-color: var(--grass-color,green);
+    background-image:
+        linear-gradient(transparent,rgb(0 0 0/ .5) var(--p1),transparent var(--p1),rgb(0 0 0)),
+        linear-gradient(var(--grass-color) var(--p1),var(--ground-color) 0);
+}
+
+/* 树叶 左侧的树叶,与右侧对应 */
+.ul-plant_leaf:nth-child(odd){
+    /* 定义变量 */
+    --leaf-gr-dir:to bottom left;
+    --gc:1;
+    /* 边框圆角 上0 右 50% 下0 左 50% */
+    border-radius:  0 var(--br) 0 var(--br);
+}
+
+.ul-plant_leaf{
+    --br:50%;
+
+    /* 网格布局，居中 */
+    display: grid;
+
+    place-items:center;
+    grid-row: span 2;
+
+    grid-column: var(--gc,2);
+
+    aspect-ratio: 1;
+    /* 相对定位，给子元素一个绝对定位的环境 */
+    position: relative;
+    /* 边框圆角，上50%，右 0 下 50%左 0 定义叶子的形状 */
+    border-radius: var(--br) 0 var(--br) 0;
+    /* 背景颜色 */
+    background-color: var(--leaf-color,green);
+    color: white;
+    /* 内边距 */
+    padding: 1rem;
+    /* 背景图像，线性渐变 */
+    background-image: 
+    linear-gradient(var(--leaf-gr-dir,to bottom right),transparent,
+    rgb(0 0 0/0.2) clac(50%- var(--stem-width)/2),
+    rgba(0 0 0 /0.5) calc(50% + var(--stem-width)/2),transparent
+    );
+    /* 盒阴影 */
+    box-shadow: inset 2px 2px 4px rgb(255 255 255/.25),
+        inset -2px -2px 4px rgb(0 0 0 /.25)
+    ;
+}
+/* 右侧叶子下去一点点 */
+.ul-plant_leaf:nth-child(2){
+    grid-row: 2/4;
+}
+
+/* 给所有叶子加上叶枝 */
+.ul-plant_leaf::after{
+    /* 定义变量 */
+    --stem-gr-dir:to top;
+
+    content: "";
+    /* 绝对定位 */
+    position: absolute;
+    top: calc(50% - var(--stem-width)/2);
+    left: var(--p1,auto);
+    right: 50%;
+
+    /* 宽 */
+    width: calc(50% + var(--col-gap)/2);
+    /* 高 */
+    height: var(--stem-width);
+    background-color: var(--leaf-color);
+
+    transform-origin: top var(--to,right);
+
+    transform: skewY(var(--sk,-45deg));
+    /* 边框圆角 */
+    border-radius: 5rem;
+    /* 层叠  */
+    z-index: -1;
+
+}
+/* 所有叶子加上叶芝 */
+.ul-plant_leaf::before,.ul-plant_leaf::after{
+    background-image: 
+    linear-gradient(var(--stem-gr-dir),rgba(0 0 0 /0.5),transparent);
+}
+
+/* 左侧 的叶枝方向调整 */
+.ul-plant_leaf:nth-child(odd)::after{
+
+    --to:left;
+    --sk:45deg;
+    --p1:50%
+}
+
+/* 树干， 右叶子元素的肢体组成 */
+.ul-plant_leaf::before{
+    /* 定义变量 */
+    --x-pos:calc(100% + var(--col-gap) / 2 - var(--stem-width ) / 2);
+
+    --stem-gr-dir:to right;
+
+    --clip-gradient:linear-gradient(to top,rgba(0, 0,0,1) clac(100% -var(--stem-width)),rgba(0,0,0,0));
+
+    content: "";
+    /* 绝对定位 */
+    position: absolute;
+    left: auto;
+    right: var(--x-pos);
+    /* 宽度 */
+    width: var(--stem-width);
+    /* 高度 */
+    height: calc(50% + var(--row-gap) / 2 + var(--stem-width));
+
+
+    top:calc(100% + var(--row-gap) - var(--stem-width));
+    z-index: -1;
+    /* 用于设置元素上层的图像 */
+    mask-image: var(--clip-gradient);
+}
+
+/* 树干，左侧肢体调整位置 */
+.ul-plant_leaf:nth-child(odd)::before{
+    left: var(--x-pos);
+    right: auto;
+}
+
+/* 第一片叶子的枝干 */
+.ul-plant_leaf:first-of-type::before{
+    border-radius: var(--stem-width) var(--stem-width) 0 0 ;
+
+}
+/* 最后一片叶子 */
+.ul-plant_leaf:last-of-type::before{
+    height: 100%;
+}

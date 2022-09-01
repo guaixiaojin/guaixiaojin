@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/minireset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <div class="hour">
+            <span>00</span>
+        </div>
+        <b>:</b>
+        <div class="minute">
+            <span>00</span>
+        </div>
+        <b>:</b>
+        <div class="second">
+            <span>00</span>
+        </div>
+        <div class="PM">PM</div>
+    </div>
+    <script>
+        window.addEventListener('load', function() {
+
+            function getTime(element, n) {
+                var first = element.getElementsByTagName('span')[0];
+                if (first.innerText !== n) {
+                    var span = document.createElement('span');
+                    span.innerText = n;
+                    element.appendChild(span);
+                    first.style.marginTop = "-125px";
+                    setTimeout(() => {
+                        element.removeChild(first);
+                    }, 600);
+                }
+            };
+            setInterval(function() {
+                var data = new Date();
+                var hh = String(data.getHours()).padStart(2, '0');
+                var hour = document.querySelector('.hour');
+                getTime(hour, hh);
+            }, 1000)
+            setInterval(function() {
+                var data = new Date();
+                var ss = String(data.getSeconds()).padStart(2, '0');
+                var second = document.querySelector('.second');
+                getTime(second, ss);
+            }, 1000);
+            setInterval(function() {
+                var data = new Date();
+                var mm = String(data.getMinutes()).padStart(2, '0');
+                var minute = document.querySelector('.minute');
+                getTime(minute, mm);
+            }, 1000);
+        })
+    </script>
+</body>
+
+</html>

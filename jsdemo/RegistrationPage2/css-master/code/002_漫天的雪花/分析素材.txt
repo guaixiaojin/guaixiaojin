@@ -1,0 +1,18 @@
+
+分析
+雪的背景颜色
+background:radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+
+背景的盒子阴影
+filter: drop-shadow(0 0 10px white);
+
+
+雪的数量 200粒雪
+
+一粒雪的特性  
+宽10px 高10px  圆形:圆角率 50% ,颜色 白色
+
+雪下的位置，从上到下 从0-100vh , 从左到右  0-100vw
+假定雪是 匀速下降 ，一直下个不停
+
+

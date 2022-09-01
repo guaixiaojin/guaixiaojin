@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./minireset.css">
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+        
+        .boss {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        div[class^="box"] {
+            width: 60px;
+            height: 60px;
+            background-color: pink;
+            position: relative;
+        }
+        
+        .boss .box1 {
+            background-color: black;
+        }
+        
+        .box1 span:nth-of-type(1) {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 10px) rotate(45deg);
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #f44336;
+            animation: op 1s ease infinite;
+            border-radius: 2px;
+        }
+        
+        .box1 span:nth-of-type(2) {
+            position: absolute;
+            top: 50%;
+            transform: translate(10px, -50%) rotate(45deg);
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #ffb74d;
+            animation: op2 1s ease infinite;
+            border-radius: 2px;
+        }
+        
+        .box1 span:nth-of-type(3) {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(-10px, -50%) rotate(45deg);
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #5c6bc0;
+            animation: op3 1s ease infinite;
+            border-radius: 2px;
+        }
+        
+        .box1 span:nth-of-type(4) {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -10px) rotate(45deg);
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #8bc34a;
+            animation: op4 1s ease infinite;
+            border-radius: 2px;
+        }
+        
+        @keyframes op {
+            0% {
+                transform: translate(-50%, 10px) rotate(45deg);
+            }
+            50% {
+                transform: translate(-50%, 40px) rotate(45deg);
+            }
+            100% {
+                transform: translate(-50%, 10px) rotate(45deg);
+            }
+        }
+        
+        @keyframes op2 {
+            0% {
+                transform: translate(10px, -50%) rotate(45deg);
+            }
+            50% {
+                transform: translate(40px, -50%) rotate(45deg);
+            }
+            100% {
+                transform: translate(10px, -50%) rotate(45deg);
+            }
+        }
+        
+        @keyframes op3 {
+            0% {
+                transform: translate(-10px, -50%) rotate(45deg);
+            }
+            50% {
+                transform: translate(-40px, -50%) rotate(45deg);
+            }
+            100% {
+                transform: translate(-10px, -50%) rotate(45deg);
+            }
+        }
+        
+        @keyframes op4 {
+            0% {
+                transform: translate(-50%, -10px) rotate(45deg);
+            }
+            50% {
+                transform: translate(-50%, -40px) rotate(45deg);
+            }
+            100% {
+                transform: translate(-50%, -10px) rotate(45deg);
+            }
+        }
+        
+        .boss .box2 {
+            animation: zhuan 1.8s ease-out infinite;
+            background-color: black;
+        }
+        
+        .boss .box2 span:nth-of-type(1) {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 10px) rotate(45deg);
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #f44336;
+            animation: opp 1s ease infinite;
+            border-radius: 50%;
+        }
+        
+        .box2 span:nth-of-type(2) {
+            position: absolute;
+            top: 50%;
+            transform: translate(10px, -50%) rotate(45deg);
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #ffb74d;
+            animation: opp2 1s ease infinite;
+            border-radius: 50%;
+        }
+        
+        .box2 span:nth-of-type(3) {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(-10px, -50%) rotate(45deg);
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #5c6bc0;
+            animation: opp3 1s ease infinite;
+            border-radius: 50%;
+        }
+        
+        .box2 span:nth-of-type(4) {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -10px) rotate(45deg);
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #8bc34a;
+            animation: opp4 1s ease infinite;
+            border-radius: 50%;
+        }
+        
+        @keyframes zhuan {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes opp {
+            0% {
+                transform: translate(-50%, 10px) rotate(45deg);
+            }
+            50% {
+                transform: translate(-50%, 40px) rotate(45deg);
+            }
+            100% {
+                transform: translate(-50%, 10px) rotate(45deg);
+            }
+        }
+        
+        @keyframes opp2 {
+            0% {
+                transform: translate(10px, -50%) rotate(45deg);
+            }
+            50% {
+                transform: translate(40px, -50%) rotate(45deg);
+            }
+            100% {
+                transform: translate(10px, -50%) rotate(45deg);
+            }
+        }
+        
+        @keyframes opp3 {
+            0% {
+                transform: translate(-10px, -50%) rotate(45deg);
+            }
+            50% {
+                transform: translate(-40px, -50%) rotate(45deg);
+            }
+            100% {
+                transform: translate(-10px, -50%) rotate(45deg);
+            }
+        }
+        
+        @keyframes opp4 {
+            0% {
+                transform: translate(-50%, -10px) rotate(45deg);
+            }
+            50% {
+                transform: translate(-50%, -40px) rotate(45deg);
+            }
+            100% {
+                transform: translate(-50%, -10px) rotate(45deg);
+            }
+        }
+        
+        .boss .box3 {
+            transform: rotate(-45deg);
+            background-color: black;
+            animation: zhuan2 2s ease-out infinite;
+        }
+        
+        .box3 span:nth-of-type(1) {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 12px) rotate(45deg);
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #f44336;
+            animation: opc 1s ease infinite;
+            border-radius: 2px;
+            border-top-left-radius: 10px;
+        }
+        
+        .box3 span:nth-of-type(2) {
+            position: absolute;
+            top: 50%;
+            transform: translate(12px, -50%) rotate(45deg);
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #ffb74d;
+            animation: opc2 1s ease infinite;
+            border-bottom-left-radius: 10px;
+        }
+        
+        .box3 span:nth-of-type(3) {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(-12px, -50%) rotate(45deg);
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #5c6bc0;
+            animation: opc3 1s ease infinite;
+            border-top-right-radius: 10px;
+        }
+        
+        .box3 span:nth-of-type(4) {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -12px) rotate(45deg);
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #8bc34a;
+            animation: opc4 1s ease infinite;
+            border-radius: 2px;
+            border-bottom-right-radius: 10px;
+        }
+        
+        @keyframes opc {
+            0% {
+                transform: translate(-50%, 12px) rotate(45deg);
+            }
+            50% {
+                transform: translate(-50%, -3px) rotate(45deg);
+            }
+            100% {
+                transform: translate(-50%, 12px) rotate(45deg);
+            }
+        }
+        
+        @keyframes opc2 {
+            0% {
+                transform: translate(12px, -50%) rotate(45deg);
+            }
+            50% {
+                transform: translate(-3px, -50%) rotate(45deg);
+            }
+            100% {
+                transform: translate(12px, -50%) rotate(45deg);
+            }
+        }
+        
+        @keyframes opc3 {
+            0% {
+                transform: translate(-12px, -50%) rotate(45deg);
+            }
+            50% {
+                transform: translate(3px, -50%) rotate(45deg);
+            }
+            100% {
+                transform: translate(-12px, -50%) rotate(45deg);
+            }
+        }
+        
+        @keyframes opc4 {
+            0% {
+                transform: translate(-50%, -12px) rotate(45deg);
+            }
+            50% {
+                transform: translate(-50%, 3px) rotate(45deg);
+            }
+            100% {
+                transform: translate(-50%, -12px) rotate(45deg);
+            }
+        }
+        
+        @keyframes zhuan2 {
+            0% {
+                transform: rotate(-45deg);
+            }
+            100% {
+                transform: rotate(315deg);
+            }
+        }
+        
+        .boss .box4 {
+            /* transform: rotate(-45deg); */
+            animation: zhuan 1.8s ease-out infinite;
+            background-color: black;
+        }
+        
+        .box4 span:nth-of-type(1) {
+            position: absolute;
+            top: 30%;
+            transform: translate(18px, -30%);
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #f44336;
+            animation: inp 1s ease infinite;
+            border-radius: 15px;
+        }
+        
+        .box4 span:nth-of-type(2) {
+            position: absolute;
+            top: 60%;
+            transform: translate(10px, -30%);
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #ffb74d;
+            animation: inp2 1s ease .5s infinite;
+            border-radius: 15px;
+        }
+        
+        .box4 span:nth-of-type(3) {
+            position: absolute;
+            top: 30%;
+            right: 0;
+            transform: translate(-10px, -30%);
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #5c6bc0;
+            animation: inp3 1s ease .5s infinite;
+            border-radius: 15px;
+        }
+        
+        .box4 span:nth-of-type(4) {
+            position: absolute;
+            right: 0;
+            top: 60%;
+            transform: translate(-18px, -30%);
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #8bc34a;
+            animation: inp4 1s ease infinite;
+            border-radius: 15px;
+        }
+        
+        @keyframes inp {
+            0% {
+                transform: translate(18px, -30%);
+            }
+            50% {
+                transform: translate(8px, -70%);
+            }
+            100% {
+                transform: translate(18px, -30%);
+            }
+        }
+        
+        @keyframes inp2 {
+            0% {
+                transform: translate(10px, -30%);
+            }
+            50% {
+                transform: translate(8px, 20%);
+            }
+            100% {
+                transform: translate(10px, -30%);
+            }
+        }
+        
+        @keyframes inp3 {
+            0% {
+                transform: translate(-10px, -30%);
+            }
+            50% {
+                transform: translate(-8px, -70%);
+            }
+            100% {
+                transform: translate(-10px, -30%);
+            }
+        }
+        
+        @keyframes inp4 {
+            0% {
+                transform: translate(-18px, -30%);
+            }
+            50% {
+                transform: translate(-8px, -10%);
+            }
+            100% {
+                transform: translate(-18px, -30%);
+            }
+        }
+        
+        .boss .box5 {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            transform: rotate(45deg);
+            background-color: black;
+        }
+        
+        .box5 span:nth-of-type(1) {
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #f44336;
+            animation: ccp 2s ease-out infinite;
+            border-radius: 2px;
+        }
+        
+        .box5 span:nth-of-type(2) {
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #ffb74d;
+            animation: ccp2 2s ease-out infinite;
+            border-radius: 2px;
+        }
+        
+        .box5 span:nth-of-type(3) {
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #5c6bc0;
+            animation: ccp3 2s ease-out infinite;
+            border-radius: 2px;
+        }
+        
+        .box5 span:nth-of-type(4) {
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #8bc34a;
+            animation: ccp4 2s ease-out infinite;
+            border-radius: 2px;
+        }
+        
+        @keyframes ccp {
+            0% {
+                transform: translate(0px, 0px);
+            }
+            25% {
+                transform: translate(15px, 0px);
+            }
+            50% {
+                transform: translate(15px, 15px);
+            }
+            75% {
+                transform: translate(0px, 15px);
+            }
+            100% {
+                transform: translate(0px, 0px);
+            }
+        }
+        
+        @keyframes ccp2 {
+            0% {
+                transform: translate(0px, 0px);
+            }
+            25% {
+                transform: translate(0px, 15px);
+            }
+            50% {
+                transform: translate(-15px, 15px);
+            }
+            75% {
+                transform: translate(-15px, 0px);
+            }
+            100% {
+                transform: translate(0px, 0px);
+            }
+        }
+        
+        @keyframes ccp3 {
+            0% {
+                transform: translate(0px, 0px);
+            }
+            25% {
+                transform: translate(0px, -15px);
+            }
+            50% {
+                transform: translate(15px, -15px);
+            }
+            75% {
+                transform: translate(15px, 0px);
+            }
+            100% {
+                transform: translate(0px, 0px);
+            }
+        }
+        
+        @keyframes ccp4 {
+            0% {
+                transform: translate(0px, 0px);
+            }
+            25% {
+                transform: translate(-15px, 0px);
+            }
+            50% {
+                transform: translate(-15px, -15px);
+            }
+            75% {
+                transform: translate(0px, -15px);
+            }
+            100% {
+                transform: translate(0px, 0px);
+            }
+        }
+        
+        .boss .box6 {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            background-color: black;
+            animation: zhuan6 2s ease-in-out infinite;
+            transition: all 2s ease-in-out;
+        }
+        
+        .box6 span:nth-of-type(1) {
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #f44336;
+            animation: ind 1s ease-out infinite;
+            border-radius: 2px;
+        }
+        
+        .box6 span:nth-of-type(2) {
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #ffb74d;
+            animation: ind 1s ease-out infinite;
+            border-radius: 2px;
+        }
+        
+        .box6 span:nth-of-type(3) {
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #5c6bc0;
+            animation: ind 1s ease-out infinite;
+            border-radius: 2px;
+            /* margin-top: 1px; */
+        }
+        
+        .box6 span:nth-of-type(4) {
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: #8bc34a;
+            animation: ind 1s ease-out infinite;
+            border-radius: 2px;
+            /* margin-top: 1px; */
+        }
+        
+        @keyframes ind {
+            0% {
+                transform: rotate(0deg);
+            }
+            80% {
+                transform: rotate(-30deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+        
+        @keyframes zhuan6 {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+            60% {
+                transform: rotate(170deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="boss">
+        <div class="box1">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="box2">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="box3">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="box4">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="box5">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="box6">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</body>
+
+</html>

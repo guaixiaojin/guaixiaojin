@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="never">
+    <link rel="stylesheet" href="./minireset.css">
+    <script src="./jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+    <style>
+        .boss {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .boss span {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .boss span ul {
+            display: flex;
+            align-items: center;
+        }
+        
+        .boss span ul li {
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        
+        .active {
+            color: skyblue;
+        }
+        
+        .doxx {
+            width: 780px;
+            display: flex;
+            justify-content: start;
+            flex-wrap: wrap;
+            margin: 20px auto;
+        }
+        
+        .doxx li {
+            width: 100px;
+            height: 200px;
+            margin: 0 15px;
+        }
+        
+        .doxx li p {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-size: 14px;
+        }
+        
+        .doxx li span {
+            font-size: 10px;
+            color: #878787;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="boss"></div>
+    <ul class="doxx"></ul>
+    <script>
+        var filters = [{
+            cateName: "题材",
+            cateKey: "styleId",
+            cates: [{
+                text: "全部",
+                code: -1
+            }, {
+                text: "热血",
+                code: 999
+            }, {
+                text: "古风",
+                code: 997
+            }, {
+                text: "玄幻",
+                code: 1016
+            }, {
+                text: "奇幻",
+                code: 998
+            }, {
+                text: "悬疑",
+                code: 1023
+            }, {
+                text: "都市",
+                code: 1002
+            }, {
+                text: "历史",
+                code: 1096
+            }, {
+                text: "武侠仙侠",
+                code: 1092
+            }, {
+                text: "游戏竞技",
+                code: 1088
+            }, {
+                text: "悬疑灵异",
+                code: 1081
+            }, {
+                text: "架空",
+                code: 1063
+            }, {
+                text: "青春",
+                code: 1060
+            }, {
+                text: "西幻",
+                code: 1054
+            }, {
+                text: "现代",
+                code: 1048
+            }, {
+                text: "正能量",
+                code: 1028
+            }, {
+                text: "科幻",
+                code: 1015
+            }, ],
+        }, {
+            cateName: "地区",
+            cateKey: "areaId",
+            cates: [{
+                text: "全部",
+                code: -1
+            }, {
+                text: "大陆",
+                code: 1
+            }, {
+                text: "日本",
+                code: 2
+            }, {
+                text: "韩国",
+                code: 6
+            }, {
+                text: "其他",
+                code: 5
+            }, ],
+        }, {
+            cateName: "进度",
+            cateKey: "isFinish",
+            cates: [{
+                text: "全部",
+                code: -1
+            }, {
+                text: "连载",
+                code: 0
+            }, {
+                text: "完结",
+                code: 1
+            }, ],
+        }, {
+            cateName: "收费",
+            cateKey: "isFree",
+            cates: [{
+                text: "全部",
+                code: -1
+            }, {
+                text: "免费",
+                code: 1
+            }, {
+                text: "付费",
+                code: 2
+            }, {
+                text: "等就免费",
+                code: 3
+            }, ],
+        }, {
+            cateName: "排序",
+            cateKey: "order",
+            cates: [{
+                text: "人气推荐",
+                code: 0
+            }, {
+                text: "更新时间",
+                code: 1
+            }, {
+                text: "追漫人数",
+                code: 2
+            }, {
+                text: "上架时间",
+                code: 3
+            }, ],
+        }, ];
+        var query = {
+            styleId: -1,
+            areaId: -1,
+            isFinish: -1,
+            isFree: -1,
+            order: 0,
+        };
+        filters.forEach(function(e, i) {
+            var div = document.createElement('span');
+            var ul = document.createElement('ul');
+            ul.setAttribute('class', e.cateKey);
+            div.innerHTML = e.cateName + ":";
+            $('.boss').append(div);
+            e.cates.forEach(function(ele, i) {
+                var li = document.createElement('li');
+                li.innerHTML = ele.text
+                li.setAttribute('data-id', ele.code);
+                ul.appendChild(li);
+                div.appendChild(ul);
+            });
+        });
+
+        $('.styleId li')[0].classList.add('active');
+        $('.areaId li')[0].classList.add('active');
+        $('.isFinish li')[0].classList.add('active');
+        $('.isFree li')[0].classList.add('active');
+        $('.order li')[0].classList.add('active');
+        $('.styleId li').on('click', function() {
+            $(this).addClass('active').siblings().removeClass('active');
+            query.styleId = $(this).data('id');
+            console.log(query);
+            get();
+        })
+        $('.areaId li').on('click', function() {
+            $(this).addClass('active').siblings().removeClass('active');
+            query.areaId = $(this).data('id');
+            console.log(query);
+            get();
+        })
+        $('.isFinish li').on('click', function() {
+            $(this).addClass('active').siblings().removeClass('active');
+            query.isFinish = $(this).data('id');
+            console.log(query);
+            get();
+        })
+        $('.isFree li').on('click', function() {
+            $(this).addClass('active').siblings().removeClass('active');
+            query.isFree = $(this).data('id');
+            console.log(query);
+            get();
+        })
+        $('.order li').on('click', function() {
+            $(this).addClass('active').siblings().removeClass('active');
+            query.order = $(this).data('id');
+            get();
+        })
+
+        function get() {
+            $.get('https://apis.netstart.cn/bcomic/ClassPage', query, function(res) {
+                $('.doxx').html("");
+                res.data.forEach(function(e, i) {
+                    console.log(e);
+                    var li = document.createElement('li');
+                    var img = document.createElement('img');
+                    var p = document.createElement('p');
+                    var span = document.createElement('span');
+                    img.src = e.vertical_cover;
+                    p.innerHTML = e.title;
+                    span.innerHTML = '更新至' + e.last_short_title;
+                    li.appendChild(img);
+                    li.appendChild(p);
+                    li.appendChild(span);
+                    $('.doxx').append(li);
+                });
+            });
+        }
+        window.onload = function() {
+            get();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/minireset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="slace"></ul>
+    <div class="box">
+        <div class="box1">111</div>
+        <div class="box2">222</div>
+    </div>
+    <script>
+        var slace = document.querySelector('.slace');
+        var icons = ["fa-cog", "fa-heart", "fa-circle-o", "fa-star", " fa-gavel", "fa-coffee", "fa-plane", "fa-wheelchair-alt"]
+
+        function doubleArr(arr) {
+            var tmp = [];
+            arr.forEach(function(item) {
+                tmp.push(item)
+                tmp.push(item)
+            })
+            return tmp;
+        }
+
+        function shuffke(arr) {
+            arr.sort(function() {
+                return Math.random() - 0.5;
+            })
+            return arr
+        }
+
+        var arr = shuffke(doubleArr(icons));
+        arr.forEach(function(item) {
+            var li = document.createElement('li');
+            li.innerHTML = '<i class="fa ' + item + '"></i><div></div>'
+            slace.appendChild(li);
+            li.onclick = function() {
+                if (!this.classList.contains('sleec')) {
+                    this.classList.add('open');
+                    this.classList.add('dlea');
+                    var arrli = [];
+                    for (var i = 0; i < slace.children.length; i++) {
+                        if (slace.children[i].classList.contains('open')) {
+                            arrli.push(slace.children[i]);
+                        }
+                    }
+                    if (arrli.length == 2) {
+                        setTimeout(function() {
+                            arrli[0].classList.remove('dlea');
+                            arrli[1].classList.remove('dlea');
+                        }, 380);
+                        setTimeout(function() {
+                            arrli[0].classList.remove('open');
+                            arrli[1].classList.remove('open');
+                            if (arrli[0].innerHTML === arrli[1].innerHTML) {
+                                arrli[0].classList.add('sleec');
+                                arrli[1].classList.add('sleec');
+                            }
+                        }, 500);
+                    }
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

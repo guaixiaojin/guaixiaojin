@@ -1,0 +1,130 @@
+html {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* overflow-y: scroll; */
+}
+
+body::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: url(../image/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.5s ease-out;
+}
+
+.timeBox {
+    font-size: 30px;
+    color: #fff;
+}
+
+.timeBox span {
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .container-left,
+.container .container-right {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    background-color: rgba(210, 206, 208, 0.3);
+    backdrop-filter: blur(3px);
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: all 0.5s ease-out;
+}
+
+.container .container-left i,
+.container .container-right i {
+    opacity: 0;
+    transition: all 0.5s ease-out;
+}
+
+.container .container-left {
+    padding-left: 30px;
+    box-sizing: border-box;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.container .container-right {
+    position: relative;
+    z-index: -1;
+    display: flex;
+    justify-content: end;
+    padding-right: 30px;
+    box-sizing: border-box;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.container .search-box {
+    display: flex;
+    align-items: center;
+    background-color: rgba(210, 206, 208, 0.3);
+    backdrop-filter: blur(3px);
+    width: 100px;
+    height: 60px;
+    position: relative;
+}
+
+.container .search-box .search-btn {
+    font-size: 18px;
+    text-align: center;
+    outline: none;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 6;
+    transform: translate(-50%, -50%);
+}
+
+.container .search-box .search-btn::-webkit-input-placeholder {
+    color: #fff;
+}
+
+.container .search-box:hover .search-btn::-webkit-input-placeholder {
+    color: #ccc;
+}
+
+.container:hover .container-left i {
+    opacity: 1;
+}
+
+.container:hover .container-right i {
+    opacity: 1;
+}
+
+.container:hover .container-right {
+    width: 200px;
+}
+
+.container:hover .container-left {
+    width: 200px;
+}
+
+
+/*# sourceMappingURL=./index.css.map */

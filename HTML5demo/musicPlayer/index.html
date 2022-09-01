@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/minireset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="box">
+        <div class="header">
+            <div class="header-img"></div>
+            <div class="header-esc">
+                <span><i class="fa fa-heart"></i></span>
+                <span><i class="fa fa-share-square-o"></i></span>
+                <span class="prev"><i class="fa fa-step-backward"></i></span>
+                <span class="next"><i class="fa fa-step-forward"></i></span>
+                <div class="play"><i class="fa fa-play-circle-o"></i></div>
+            </div>
+        </div>
+        <div class="center">
+            <h1>无拘</h1>
+            <span>林俊杰</span>
+        </div>
+        <div class="footer">
+            <p>00:00</p>
+            <div class="played">
+                <div></div>
+            </div>
+            <span>00:00</span>
+        </div>
+        <audio src="./audio/林俊杰 - 无拘.mp3"></audio>
+    </section>
+    <script>
+        var audio = document.querySelector('audio');
+        var played = document.querySelector('.played');
+        var footer = document.querySelector('.footer');
+        var tracks = [{
+            name: "无拘",
+            artist: "林俊杰",
+            cover: "./image/109951167793172824.jpg",
+            source: "./audio/林俊杰 - 无拘.mp3",
+            url: "https://www.youtube.com/watch?v=z3wAjJXbYzA",
+            favorited: false
+        }, {
+            name: "Avid",
+            artist: "SawanoHiroyuki[nZk],mizuki (瑞葵)",
+            cover: "./image/109951166004106688.jpg",
+            source: "./audio/SawanoHiroyuki[nZk],mizuki (瑞葵) - Avid.mp3",
+            url: "https://www.youtube.com/watch?v=Lin-a2lTelg",
+            favorited: true
+        }, {
+            name: "Voices of the Chord",
+            artist: "澤野弘之",
+            cover: "./image/109951166116865603.jpg",
+            source: "./audio/澤野弘之 - Voices of the Chord.mp3",
+            url: "https://www.youtube.com/watch?v=ICjyAe9S54c",
+            favorited: false
+        }];
+        var flag = true
+        $('.play').on('click', function() {
+            if (flag) {
+                $(this).children().attr('class', 'fa fa-pause-circle-o');
+                audio.volume = 0.3
+                audio.play();
+                flag = false
+            } else {
+                $(this).children().attr('class', 'fa fa-play-circle-o');
+                audio.volume = 0.3
+                audio.pause();
+                flag = true
+            }
+        });
+        var num = 0;
+        window.onload = function() {
+            // tracks.forEach((item, i) => {
+            //     if (item.favorited === true) {
+            //         $('.header-esc').children().eq(0).children('i').css('color', 'red');
+            //     } else {
+            //         $('.header-esc').children().eq(0).children('i').css('color', '#acb8cc');
+            //     }
+            // })
+            $('.prev').on('click', function() {
+                num--;
+                if (num < 0) {
+                    num = tracks.length - 1;
+                }
+                heart(num);
+                $('.header-img').animate({
+                    opacity: 0,
+                }, function() {
+                    $(this).css({
+                        opacity: 1,
+                        "background-image": "url(" + tracks[num].cover + ")"
+                    });
+                });
+                // , function() {
+                //     $(this).removeClass('active');
+                // $(this).css({
+                //     opacity: 1,
+                //     "background-image": "url(" + tracks[num].cover + ")"
+                // })
+                // }
+                $('audio').prop('src', tracks[num].source);
+                $('.center').children('h1').text(tracks[num].name);
+                $('.center').children('span').text(tracks[num].artist);
+                $(".play").children().attr('class', 'fa fa-play-circle-o');
+                flag = true
+            });
+            $('.next').on('click', function() {
+                num++;
+                if (num > tracks.length - 1) {
+                    num = 0;
+                }
+                heart(num);
+                $('.header-img').animate({
+                    opacity: 0,
+                }, function() {
+                    $(this).css({
+                        opacity: 1,
+                        "background-image": "url(" + tracks[num].cover + ")"
+                    });
+                });
+                $('audio').prop('src', tracks[num].source);
+                $('.center').children('h1').text(tracks[num].name);
+                $('.center').children('span').text(tracks[num].artist);
+                $(".play").children().attr('class', 'fa fa-play-circle-o');
+                flag = true
+            });
+        }
+        audio.oncanplay = function() {
+            var m = parseInt(audio.duration / 60) < 10 ? '0' + parseInt(audio.duration / 60) : parseInt(audio.duration / 60);
+            var s = parseInt(audio.duration % 60) < 10 ? '0' + parseInt(audio.duration % 60) : parseInt(audio.duration % 60);
+            // console.log(m);
+            // console.log(s);
+            $('.footer').children('p').html(m + ':' + s);
+            audio.ontimeupdate = function() {
+                // console.log(audio.currentTime);
+                var timeM = parseInt(audio.currentTime / 60) < 10 ? '0' + parseInt(audio.currentTime / 60) : parseInt(audio.currentTime / 60);
+                var timeS = parseInt(audio.currentTime % 60) < 10 ? '0' + parseInt(audio.currentTime % 60) : parseInt(audio.currentTime % 60);
+                $('.footer').children('span').html(timeM + ':' + timeS);
+                // console.log($('.played').width());
+                var progress = audio.currentTime / audio.duration * $('.played').width();
+                $('.played').children().css('width', progress);
+            }
+        }
+
+        function heart(n) {
+            if (tracks[n].favorited) {
+                $('.header-esc').children().eq(0).children('i').css('color', 'red');
+            } else {
+                $('.header-esc').children().eq(0).children('i').css('color', '#acb8cc');
+            }
+        }
+
+        $('.header-esc').children().eq(0).on('click', function() {
+            if (!tracks[num].favorited) {
+                $(this).children().css('color', 'red');
+                tracks[num].favorited = true;
+            } else {
+                $(this).children().css('color', '#acb8cc');
+                tracks[num].favorited = false;
+            }
+        });
+
+        // $('.played').on('mousedown', function() {
+        //     // console.log(e.offsetX / $(this).width() * audio.duration);
+        //     $('.played').on('mousemove', function(e) {
+        //         audio.currentTime = e.offsetX / $(this).width() * audio.duration;
+        //     });
+        //     $('.played').on('mouseup', function() {
+        //         $('.played')[0].onmousemove = null;
+        //     });
+        // });
+        played.onmousedown = function(e) {
+            // console.log(e.offsetX / this.offsetWidth * audio.duration);
+            audio.currentTime = e.offsetX / this.offsetWidth * audio.duration;
+            footer.onmousemove = function(e) {
+                audio.currentTime = e.offsetX / this.offsetWidth * audio.duration;
+            }
+            window.onmouseup = function() {
+                footer.onmousemove = null;
+            }
+        }
+    </script>
+</body>
+
+</html>

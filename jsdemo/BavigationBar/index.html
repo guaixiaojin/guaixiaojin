@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./css/body五彩斑斓.css"> -->
+    <link rel="stylesheet" href="./css/minireset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="navigation">
+        <ul>
+            <li class="list active">
+                <a href="#">
+                    <span class="icon"><i class="fa fa-home"></i></span>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><i class="fa fa-user"></i></span>
+                    <span class="text">Profile</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><i class="fa fa-comment-o "></i></span>
+                    <span class="text">Messages</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><i class="fa fa-camera"></i></span>
+                    <span class="text">Photos</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><i class="fa fa-cog"></i></span>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+    <script>
+        var list = document.querySelectorAll('.list');
+        var ul = document.querySelector('.navigation>ul');
+        var indicator = document.querySelector('.indicator');
+        console.log(ul);
+        for (var i = 0; i < list.length; i++) {
+            list[i].title = i;
+            list[i].onclick = function() {
+                for (var i = 0; i < list.length; i++) {
+                    ul.children[i].className = 'list'
+                }
+                var title = this.title
+                ul.children[title].className = 'list active';
+                indicator.style.left = 15 + (title * 80) + 'px';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/minireset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="navigation">
+        <div class="menu_toggle"></div>
+        <div class="profile">
+            <div class="imgBx">
+                <img src="./image/1.gif" alt="" />
+            </div>
+        </div>
+        <div class="menu">
+            <li>
+                <a href="#">
+                    <span class="icon">
+                <i class="fa fa-user"></i>
+              </span>
+                    <soan class="text">Profile</soan>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+                    <soan class="text">Inbox</soan>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon">
+                <i class="fa fa-cog"></i>
+              </span>
+                    <soan class="text">Settings</soan>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon">
+                <i class="fa fa-question"></i>
+              </span>
+                    <soan class="text">Support</soan>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon">
+                <i class="fa fa-sign-out"></i>
+              </span>
+                    <soan class="text">Logout</soan>
+                </a>
+            </li>
+        </div>
+    </div>
+    <script>
+        var navigation = document.querySelector('.navigation');
+        var menu_toggle = document.querySelector('.menu_toggle');
+        menu_toggle.onclick = function() {
+            navigation.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

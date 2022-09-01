@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/minireset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <div class="inputBox">
+            <input type="password" id="pswrd" placeholder="密码" onkeyup="checkPassword(this.value=this.value.replace(/[, ]/g,''))">
+            <span id="toggleBtn"></span>
+        </div>
+        <div class="checkinputBox">
+            <input type="password" id="pswrd" placeholder="请确认密码" onkeyup="recheckPassword(this.value=this.value.replace(/[, ]/g,''))">
+            <span id="toggleBtn"></span>
+            <button class="btn">确定</button>
+        </div>
+        <div class="validation">
+            <ul>
+                <li id="lower">至少有一个小写字母</li>
+                <li id="upper">至少有一个大写字母</li>
+                <li id="number">至少有一个数字</li>
+                <li id="special">至少有一个特殊字符</li>
+                <li id="length">至少有8个字符</li>
+                <li id="recheck">两次输入密码不一致</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var lower = document.querySelector('#lower');
+        var upper = document.querySelector('#upper');
+        var number = document.querySelector('#number');
+        var special = document.querySelector('#special');
+        var length = document.querySelector('#length');
+        var recheck = document.querySelector('#recheck');
+        var pswrds = document.querySelectorAll('#pswrd');
+        var toggleBtn = document.querySelectorAll('#toggleBtn');
+        var btn = document.querySelector('.btn');
+        var lowerver = /[a-z]+/
+        var upperver = /[A-Z]+/
+        var numberver = /\d+/
+        var specialver = /\W+/
+        var lengthver = /[A-z|0-9\W]{8,}/
+
+        function checkPassword(data) {
+            if (lowerver.test(data)) {
+                lower.classList.add('valid');
+            } else {
+                lower.classList.remove('valid');
+            }
+            if (upperver.test(data)) {
+                upper.classList.add('valid');
+            } else {
+                upper.classList.remove('valid');
+            }
+            if (numberver.test(data)) {
+                number.classList.add('valid');
+            } else {
+                number.classList.remove('valid');
+            }
+            if (specialver.test(data)) {
+                special.classList.add('valid');
+            } else {
+                special.classList.remove('valid');
+            }
+            if (lengthver.test(data)) {
+                length.classList.add('valid');
+            } else {
+                length.classList.remove('valid');
+            }
+        }
+
+        function recheckPassword(datatrue) {
+            if (datatrue === pswrds[0].value) {
+                recheck.classList.add('valid');
+                btn.style.backgroundColor = 'aquamarine';
+                btn.style.color = 'white';
+            } else {
+                recheck.classList.remove('valid');
+                btn.style.backgroundColor = '#fff';
+                btn.style.color = 'black';
+            }
+        }
+        for (var i = 0; i < toggleBtn.length; i++) {
+            toggleBtn[i].title = i
+            toggleBtn[i].onclick = function() {
+                if (pswrds[this.title].type == 'password') {
+                    pswrds[this.title].setAttribute('type', 'text');
+                    toggleBtn[this.title].classList.add('hide');
+                } else {
+                    pswrds[this.title].setAttribute('type', 'password');
+                    toggleBtn[this.title].classList.remove('hide');
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

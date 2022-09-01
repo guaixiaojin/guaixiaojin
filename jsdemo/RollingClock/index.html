@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/minireset.css">
+    <link rel="stylesheet" href="./css/body五彩斑斓.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="hour">
+            <li>
+                <span>0</span>
+            </li>
+            <li>
+                <span>0</span>
+            </li>
+        </ul>
+        <div>:</div>
+        <ul class="minute">
+            <li>
+                <span>0</span>
+            </li>
+            <li>
+                <span>0</span>
+            </li>
+        </ul>
+        <div>:</div>
+        <ul class="second">
+            <li>
+                <span>0</span>
+            </li>
+            <li>
+                <span>0</span>
+            </li>
+        </ul>
+    </div>
+    <script>
+        function getTime(element, n) {
+            var first = element.getElementsByTagName("span")[0];
+            // console.log(first);
+            if (first.innerText !== n) {
+                var span = document.createElement('span');
+                span.innerText = n;
+                element.appendChild(span);
+                first.style.marginTop = '-50px';
+                setTimeout(function() {
+                    element.removeChild(first);
+                }, 600)
+            }
+        }
+        var datad = new Date();
+        var hh = String(datad.getHours()).padStart(2, "0");
+        var mm = String(datad.getMinutes()).padStart(2, "0");
+        var ss = String(datad.getSeconds()).padStart(2, "0");
+        var hour = document.querySelector('.hour');
+        var minute = document.querySelector('.minute');
+        var second = document.querySelector('.second');
+        hour.querySelectorAll('li').forEach((ele, i) => {
+            getTime(ele, hh[i]);
+        })
+        minute.querySelectorAll('li').forEach((ele, i) => {
+            getTime(ele, mm[i]);
+        })
+        second.querySelectorAll('li').forEach((ele, i) => {
+            getTime(ele, ss[i]);
+        })
+
+        setInterval(function() {
+            var datad = new Date();
+            var hh = String(datad.getHours()).padStart(2, "0");
+            var mm = String(datad.getMinutes()).padStart(2, "0");
+            var ss = String(datad.getSeconds()).padStart(2, "0");
+            var hour = document.querySelector('.hour');
+            var minute = document.querySelector('.minute');
+            var second = document.querySelector('.second');
+            hour.querySelectorAll('li').forEach((ele, i) => {
+                getTime(ele, hh[i]);
+            })
+            minute.querySelectorAll('li').forEach((ele, i) => {
+                getTime(ele, mm[i]);
+            })
+            second.querySelectorAll('li').forEach((ele, i) => {
+                getTime(ele, ss[i]);
+            })
+        }, 1000);
+    </script>
+</body>
+
+</html>

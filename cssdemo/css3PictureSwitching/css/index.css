@@ -1,0 +1,32 @@
+.box {
+  width: 700px;
+  height: 700px;
+  margin: 0 auto;
+}
+.box ul {
+  width: 600px;
+  height: 400px;
+  position: relative;
+}
+.box ul li {
+  list-style: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+.box ul li:target {
+  display: block;
+}
+.box ol {
+  width: 600px;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+.box ol li {
+  width: 100px;
+  height: 100px;
+  list-style: none;
+}
+/*# sourceMappingURL=./index.css.map */

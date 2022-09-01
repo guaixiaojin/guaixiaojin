@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/minireset.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <script src="./js/jquery-3.6.0.js"></script>
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'iconfont';
+            src: url('./font_2vz0msb1qu2/iconfont.ttf') format('truetype');
+        }
+        
+        .iconfont {
+            font-family: "iconfont" !important;
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        html {
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        
+        .body {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* overflow-y: scroll; */
+        }
+        
+        .video {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        
+        .form {
+            width: 600px;
+            height: 300px;
+            border: 1px #fff solid;
+            margin: 10% auto 0 auto;
+            border-radius: 10px;
+            display: flex;
+            position: relative;
+        }
+        
+        .form form {
+            display: block;
+            width: 400px;
+            height: 100%;
+            /* background-color: pink; */
+            /* margin-left: 200px; */
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            transition: all 0.5s ease-out;
+        }
+        
+        .form form:nth-of-type(1) {
+            z-index: 900;
+            opacity: 1;
+        }
+        
+        .form form:nth-of-type(2) {
+            opacity: 0;
+            z-index: 1;
+            left: 200px;
+        }
+        
+        .form form:nth-of-type(2).active {
+            opacity: 1;
+            z-index: 900;
+            left: 0;
+        }
+        
+        .form form:nth-of-type(1).active {
+            opacity: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        .form form div {
+            height: 30px;
+            width: 100%;
+            position: relative;
+        }
+        
+        .form form h1 {
+            font-weight: bold;
+            color: #3c94a3;
+            margin-top: 10px;
+        }
+        
+        .form form div label {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 75px;
+            /* font-size: 20px; */
+        }
+        
+        .form form div input {
+            padding-left: 30px;
+            width: 250px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, 0);
+            border: 1px #fff solid;
+            border-radius: 5px;
+            outline: none;
+            transition: all 0.5s ease;
+        }
+        /* .form form div input:-ms-placeholder,
+        .form form div input:-moz-placeholder,
+        .form form div input::-moz-placeholder, */
+        
+        .form form div input::-webkit-input-placeholder {
+            color: white;
+        }
+        
+        .form form div input:focus {
+            border: 1px #709bce solid;
+        }
+        
+        .form form .ccb {
+            width: 180px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .form form .ccb input {
+            text-align: center;
+            width: 60px;
+            border-radius: 2px;
+            border: 0;
+            color: #fff;
+            background-color: #2d9bb1;
+            border-radius: 20px;
+            padding: 0;
+        }
+        
+        .bg {
+            width: 200px;
+            height: 100%;
+            background-color: #2fa0a7;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            transition: all 0.5s ease;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+        
+        .bg.active {
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            transition: all 0.5s ease;
+            top: 0;
+            left: 400px;
+        }
+        
+        .bg h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            transition: all 0.5 ease-out;
+        }
+        
+        .bg p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            text-align: center;
+            transition: all 0.5 ease-out;
+        }
+        
+        .bg button {
+            width: 80px;
+            height: 40px;
+            border: 1px #fff solid;
+            color: #fff;
+            border-radius: 20px;
+            background-color: rgba(0, 0, 0, 0);
+            cursor: pointer;
+            transition: all 0.5 ease-out;
+        }
+        
+        @media screen and (max-width:1000px) {
+            .video {
+                width: 1000px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video"><video src="./video/366425020-1-208.mp4" muted autoplay loop volume="0"></video></div>
+    <div class="form">
+        <div class="bg">
+            <h1>欢迎回来!</h1>
+            <p>与我们保持联系,<br>请登录你的用户</p>
+            <button>登录</button>
+        </div>
+        <form action="" method="get">
+            <h1>创建用户</h1>
+            <div><label for="user"><i class="fa fa-user-o"></i></label><input type="text" name="user" id="user" autocomplete="off" placeholder="请输入账号"></div>
+            <div><label for="username"><i class="fa fa-user"></i></label><input type="text" name="username" id="username" autocomplete="off" placeholder="请输入昵称"></div>
+            <div><label for="password"><i class="iconfont">&#xe64d;</i></label><input type="text" name="password" id="password" autocomplete="off" placeholder="请输入密码"></div>
+            <div><label for="turepassword"><i class="iconfont">&#xe64d;</i></label><input type="text" name="turepassword" id="turepassword" autocomplete="off" placeholder="请确认密码"></div>
+            <div class="ccb"><input type="button" name="sub" id="sub" value="提交"><input type="reset" value="重置"></div>
+        </form>
+        <form action="" method="get">
+            <h1>用户登录</h1>
+            <div><label for="user"><i class="fa fa-user-o"></i></label><input type="text" name="user" id="user" autocomplete="off" placeholder="请输入账号"></div>
+            <div><label for="password"><i class="iconfont">&#xe64d;</i></label><input type="text" name="password" id="password" autocomplete="off" placeholder="请输入密码"></div>
+            <div class="ccb"><input type="button" name="sub" id="sub" value="登录"><input type="reset" value="重置"></div>
+        </form>
+    </div>
+    <script>
+        var flag = true;
+        $('.bg button').on('click', function() {
+            // if ($(this)[0].innerText == '注册') {
+            //     $(this)[0].innerText == "登录";
+            // } else {
+            //     $(this)[0].innerText == "注册";
+            // }
+
+            if (flag) {
+                $(this).text('注册').siblings('h1').text('你好,朋友!').siblings('p').html('开始注册,和我们<br>一起旅行');
+                flag = false;
+            } else {
+                $(this).text('登录').siblings('h1').text('欢迎回来!').siblings('p').html('与我们保持联系,<br>请登录你的用户');
+                flag = true;
+            }
+            $(this).parent().toggleClass('active');
+            $(this).parent().siblings('form').toggleClass('active');
+        });
+    </script>
+</body>
+
+</html>

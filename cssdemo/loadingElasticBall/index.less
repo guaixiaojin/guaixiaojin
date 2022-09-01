@@ -1,0 +1,124 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.three-balls-bounce{
+    position: relative;
+    width: 200px;
+    height: 62px;
+    .circle{
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        background-color: #ff4a69;
+        border-radius: 50%;
+        left: 15%;
+        transform-origin: 50%;
+        animation: balls-circle 0.5s alternate ease infinite;
+    }
+    .shadow{
+        width: 20px;
+        height: 4px;
+        position: absolute;
+        background-color: rgba(0, 0, 0, .4);
+        transform-origin: 50%;
+        top: 62px;
+        left: 15%;
+        border-radius: 50%;
+        filter: blur(1px);
+        z-index: -1;
+        animation:balls-shadow 0.5s alternate ease infinite;
+    }
+    .circle:nth-child(2),.shadow:nth-child(4){
+        left: 45%;
+        animation-delay: 0.2s;
+    }
+
+    .circle:nth-child(3),.shadow:nth-child(6){
+        left: auto;
+        right: 15%;
+        animation-delay: 0.3s;
+    }
+    .text{
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        span{
+            display: block;
+            animation: text-move 0.5s alternate ease infinite;
+        }
+        span:nth-of-type(1){
+            animation-delay: 0.2s;
+        }
+        span:nth-of-type(2){
+            animation-delay: 0.3s;
+        }
+        span:nth-of-type(3){
+            animation-delay: 0.4s;
+        }
+        span:nth-of-type(4){
+            animation-delay: 0.5s;
+        }
+        span:nth-of-type(5){
+            animation-delay: 0.6s;
+        }
+        span:nth-of-type(6){
+            animation-delay: 0.7s;
+        }
+        span:nth-of-type(7){
+            animation-delay: 0.8s;
+        }
+        span:nth-of-type(8){
+            animation-delay: 0.9s;
+        }
+        span:nth-of-type(9){
+            animation-delay: 1s;
+        }
+    }
+}
+
+@keyframes balls-circle {
+    0%{
+        top: 60px;
+        height: 5px;
+        border-radius: 50px 50px 25px 25px;
+        transform: scaleX(1.7);
+    }
+    50%{
+        height: 20px;
+        border-radius: 50%;
+        transform: scale(1);
+    }
+    100%{
+        top: 0%;
+    }
+}
+
+@keyframes balls-shadow {
+    0%{
+        transform: scale(1.5);
+    }
+    50%{
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    100%{
+        transform: scale(0.2);
+        opacity: 0.4;
+    }
+}
+
+@keyframes text-move {
+    0%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(-5px);
+    }
+}

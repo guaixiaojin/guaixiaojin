@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="never">
+    <link rel="stylesheet" href="./minireset.css">
+    <script src="./jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+    <!-- styleId 题材分类id number -1全部  999热血   997古风  1016玄幻 998奇幻 1023悬疑 1002都市 1096历史 1092武侠仙侠  1088游戏竞技  
+    1081悬疑灵异 1063架空 1060青春 1054西幻 1048现代 1028正能量 1015科幻
+areaId 地区分类id  number -1全部  1大陆  2日本  6韩国  5其他
+isFinish 进度分类    number -1全部  0连载  1完结
+isFree 收费id        number -1全部  1免费  2付费   3等就免费
+order  排序                  number 0人气推荐 1更新时间 2追漫人数  3上架时间
+pageNum  页码          number 1 -->
+    <style>
+        .box,
+        .box2,
+        .box3,
+        .box4,
+        .box5 {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+        }
+        
+        .box ul,
+        .box2 ul,
+        .box3 ul,
+        .box4 ul,
+        .box5 ul {
+            display: flex;
+        }
+        
+        .box ul li,
+        .box2 ul li,
+        .box3 ul li,
+        .box4 ul li,
+        .box5 ul li {
+            padding: 5px;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .axd {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 700px;
+            margin: 0 auto;
+        }
+        
+        .axd li {
+            width: 100px;
+            height: 200px;
+            margin: 0 15px;
+        }
+        
+        .axd li p {
+            font-size: 14px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .axd li span {
+            font-size: 12px;
+            color: #878787;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        题材分类:
+        <ul>
+            <li styleId="-1" style="color: red;">全部</li>
+            <li styleId="999">热血</li>
+            <li styleId="997">古风</li>
+            <li styleId="1016">玄幻</li>
+            <li styleId="998">奇幻</li>
+            <li styleId="1023">悬疑</li>
+            <li styleId="1002">都市</li>
+            <li styleId="1096">历史</li>
+            <li styleId="1092">武侠仙侠</li>
+            <li styleId="1088">游戏竞技</li>
+            <li styleId="1081">悬疑灵异</li>
+            <li styleId="1063">架空</li>
+            <li styleId="1060">青春</li>
+            <li styleId="1054">西幻</li>
+            <li styleId="1048">现代</li>
+            <li styleId="1028">正能量</li>
+            <li styleId="1015">科幻</li>
+        </ul>
+    </div>
+    <div class="box2">
+        地区分类:
+        <ul>
+            <li areaId="-1" style="color: red;">全部</li>
+            <li areaId="1">大陆</li>
+            <li areaId="2">日本</li>
+            <li areaId="6">韩国</li>
+            <li areaId="5">其他</li>
+        </ul>
+    </div>
+    <div class="box3">
+        进度分类:
+        <ul>
+            <li isFinsh="-1" style="color: red;">全部</li>
+            <li isFinsh="0">连载 </li>
+            <li isFinsh="1">完结</li>
+        </ul>
+    </div>
+    <div class="box4">
+        收费:
+        <ul>
+            <li isFree="-1" style="color: red;">全部</li>
+            <li isFree="1">免费</li>
+            <li isFree="2">付费</li>
+            <li isFree="3">等就免费</li>
+        </ul>
+    </div>
+    <div class="box5">
+        排序:
+        <ul>
+            <li order="0" style="color: red;">人气推荐</li>
+            <li order="1">更新时间</li>
+            <li order="2">追漫人数</li>
+            <li order="3">上架时间</li>
+        </ul>
+    </div>
+
+    <ul class="axd"></ul>
+    <script>
+        var box = document.querySelector('.box');
+        var box2 = document.querySelector('.box2');
+        var box3 = document.querySelector('.box3');
+        var box4 = document.querySelector('.box4');
+        var box5 = document.querySelector('.box5');
+        var boxli = box.querySelectorAll('ul li');
+        var boxli2 = box2.querySelectorAll('ul li');
+        var boxli3 = box3.querySelectorAll('ul li');
+        var boxli4 = box4.querySelectorAll('ul li');
+        var boxli5 = box5.querySelectorAll('ul li');
+        var arr = ['-1', '-1', '-1', '-1', '0'];
+        boxli.forEach(function(e, i) {
+            e.onclick = function(event) {
+                for (var i = 0; i < boxli.length; i++) {
+                    boxli[i].style.color = 'black';
+                }
+                e.style.color = 'red';
+                var d1 = event.path[0].attributes[0].value
+                arr.shift();
+                arr.unshift(d1);
+                get();
+            }
+        })
+        boxli2.forEach(function(e, i) {
+            e.onclick = function(event) {
+                for (var i = 0; i < boxli2.length; i++) {
+                    boxli2[i].style.color = 'black';
+                }
+                e.style.color = 'red';
+                var d2 = event.path[0].attributes[0].value
+                arr.splice(1, 1, d2);
+                get();
+            }
+        })
+
+        boxli3.forEach(function(e, i) {
+            e.onclick = function(event) {
+                for (var i = 0; i < boxli3.length; i++) {
+                    boxli3[i].style.color = 'black';
+                }
+                e.style.color = 'red';
+                var d3 = event.path[0].attributes[0].value
+                arr.splice(2, 1, d3);
+                get();
+            }
+        })
+
+        boxli4.forEach(function(e, i) {
+            e.onclick = function(event) {
+                for (var i = 0; i < boxli4.length; i++) {
+                    boxli4[i].style.color = 'black';
+                }
+                e.style.color = 'red';
+                var d4 = event.path[0].attributes[0].value
+                arr.splice(3, 1, d4);
+                get();
+            }
+        })
+
+        boxli5.forEach(function(e, i) {
+            e.onclick = function(event) {
+                for (var i = 0; i < boxli5.length; i++) {
+                    boxli5[i].style.color = 'black';
+                }
+                e.style.color = 'red';
+                var d5 = event.path[0].attributes[0].value
+                arr.pop();
+                arr.push(d5);
+                get();
+            }
+        })
+
+        window.onload = function() {
+            get();
+        }
+
+
+        function get() {
+            // $.get('https://apis.netstart.cn/bcomic/ClassPage?styleId=' + arr[0] + '&areaId=' + arr[1] + '&isFinish=' + arr[2] + '&order=' + arr[4] + '&pageNum=1&pageSize=39&isFree=' + arr[3], function(res) {
+            //     $('.axd').html("");
+            //     res.data.forEach(function(e, i) {
+            //         var li = document.createElement('li');
+            //         var img = document.createElement('img');
+            //         var p = document.createElement('p');
+            //         var span = document.createElement('span');
+            //         span.innerHTML = "更新至" + e.total + '话';
+            //         img.src = e.vertical_cover
+            //         p.innerHTML = e.title;
+            //         li.appendChild(img);
+            //         li.appendChild(p);
+            //         li.appendChild(span);
+            //         $('.axd').append(li);
+            //     })
+            // });
+            // ?styleId=' + arr[0] + '&areaId=' + arr[1] + '&isFinish=' + arr[2] + '&order=' + arr[4] + '&pageNum=1&pageSize=39&isFree=' + arr[3]
+            $.get('https://apis.netstart.cn/bcomic/ClassPage', {
+                styleId: arr[0],
+                areaId: arr[1],
+                isFinish: arr[2],
+                order: arr[4],
+                pageNum: 1,
+                pageSize: 39,
+                isFree: arr[3]
+            }, function(res) {
+                $('.axd').html("");
+                res.data.forEach(function(e, i) {
+                    var li = document.createElement('li');
+                    var img = document.createElement('img');
+                    var p = document.createElement('p');
+                    var span = document.createElement('span');
+                    span.innerHTML = "更新至" + e.total + '话';
+                    img.src = e.vertical_cover
+                    p.innerHTML = e.title;
+                    li.appendChild(img);
+                    li.appendChild(p);
+                    li.appendChild(span);
+                    $('.axd').append(li);
+                })
+            });
+        }
+    </script>
+</body>
+
+</html>

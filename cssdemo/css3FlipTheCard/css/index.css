@@ -1,0 +1,82 @@
+.slace {
+  width: 500px;
+  height: 500px;
+  background-color: cadetblue;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  transform: perspective(500);
+}
+.slace li {
+  width: 120px;
+  height: 120px;
+  background-color: skyblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: skyblue;
+  transition: all 0.5s;
+  position: relative;
+  backface-visibility: hidden;
+}
+.slace li i {
+  transform: rotateY(180deg);
+  font-size: 30px;
+}
+.slace li.open {
+  transform: perspective(500);
+  transform: rotateY(180deg);
+}
+.slace li.dlea {
+  color: #fff;
+}
+.slace li.sleec {
+  color: #fff;
+  background-color: cadetblue;
+  transform: rotateY(180deg);
+}
+.slace li::before {
+  content: "";
+  width: 120px;
+  height: 120px;
+  background-color: skyblue;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  transition: all 0.5s;
+  transform: perspective(500) rotateY(0deg);
+}
+.box {
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+.box .box1 {
+  width: 100%;
+  height: 100%;
+  background-color: pink;
+  position: absolute;
+  transition: all 0.5s;
+  transform: perspective(500px) rotateY(0deg);
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+.box .box2 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  backface-visibility: hidden;
+  background-color: skyblue;
+  transition: all 0.5s;
+  transform: perspective(500px) rotateY(180deg);
+}
+.box:hover .box1 {
+  transform: perspective(500px) rotateY(-180deg);
+}
+.box:hover .box2 {
+  transform: perspective(500px) rotateY(0deg);
+}
+/*# sourceMappingURL=./index.css.map */

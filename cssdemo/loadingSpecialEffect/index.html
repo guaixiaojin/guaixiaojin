@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./minireset.css">
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+        
+        .box {
+            width: 150px;
+            height: 200px;
+            /* background-color: skyblue; */
+            position: relative;
+        }
+        
+        .box .loader span {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+            transform: rotate(0deg);
+            animation: op 0.5s linear infinite;
+        }
+        
+        .box .load {
+            color: #Fff;
+            position: absolute;
+            bottom: 0;
+            left: 45px;
+        }
+        
+        .box span:nth-of-type(1) {
+            filter: blur(5px);
+        }
+        
+        .box span:nth-of-type(2) {
+            filter: blur(10px);
+        }
+        
+        .box span:nth-of-type(3) {
+            filter: blur(25px);
+        }
+        
+        .box span:nth-of-type(4) {
+            filter: blur(45px);
+        }
+        
+        .box .loader::before {
+            content: "";
+            position: absolute;
+            top: 8%;
+            left: 10%;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: black;
+            z-index: 10000;
+            animation: op2 1.5s linear infinite;
+        }
+        
+        @keyframes op {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes op2 {
+            0% {
+                transform: translateX(0px) rotate(0deg);
+            }
+            60% {
+                transform: translatex(5px) rotate(180deg);
+            }
+            100% {
+                transform: translatex(0px) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="load">loading</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./minireset.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <script src="./jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+    <style>
+        .body {
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        div {
+            width: 200px;
+            height: 380px;
+            float: left;
+            margin-left: 15px;
+            overflow: hidden;
+        }
+        
+        div ul {
+            width: 220px;
+            overflow-y: scroll;
+            height: 100%;
+        }
+        
+        div ul li {
+            cursor: pointer;
+            height: 40px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            user-select: none;
+        }
+        
+        div ul li i {
+            position: absolute;
+            right: 10px;
+        }
+        
+        .active {
+            background-color: #ccc;
+            color: skyblue;
+        }
+        
+        .activemove {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul class="boss"></ul>
+    </div>
+    <div>
+        <ul class="cate"></ul>
+    </div>
+    <div>
+        <ul class="bocc"></ul>
+    </div>
+    <script>
+        var arr = []
+        var ass = []
+        var axx = []
+        $.get('./prov-county.json', function(res) {
+            // res.forEach(function(e, i) {
+            //     if (parseInt(e).toString().length == 2) {
+            //         arr.push(e);
+            //     }
+            //     if (parseInt(e).toString().length == 4) {
+            //         ass.push(e);
+            //     }
+            //     if (parseInt(e).toString().length == 6) {
+            //         axx.push(e);
+            //     }
+            // });
+            // console.log(arr);
+            // console.log(ass);
+            // console.log(axx);
+            // var acc = []
+            // arr.forEach((e, i) => {
+            //     var li = $("<li class='ccc' data-id=" + e.substr(0, 2) + ">" + e.substr(3) + "<i class='fa fa-angle-right'></i></li>");
+            //     $('.boss').append(li);
+            // });
+
+            // $('.boss li').on('click', function() {
+            //     $(this).addClass('active').siblings().removeClass('active');
+            //     that = $(this)
+            //     $('.bocc').html("");
+            //     $('.cate').html("");
+            //     ass.forEach(function(e, i) {
+            //             if (e.startsWith(that.data('id'))) {
+            //                 var li = $('<li class="ppp" data-id=' + e.substr(0, 4) + '>' + e.substr(5) + '<i class="fa fa-angle-right"></i></li>');
+            //                 $('.cate').append(li);
+            //             }
+            //         })
+            //         // $('.cate li').on('click', function() {
+            //         //     $(this).addClass('active').siblings().removeClass('active');
+            //         //     that = $(this)
+            //         //     $('.bocc').html("");
+            //         //     axx.forEach(function(e, i) {
+            //         //         if (e.startsWith(that.data('id'))) {
+            //         //             var ccd = $('<li class="ddd">' + e.substr(7) + '</li>');
+            //         //             $('.bocc').append(ccd);
+            //         //         }
+            //         //     })
+            //         // });
+            // });
+
+            // $('.cate').on('click', 'li', function() {
+            //     $(this).addClass('active').siblings().removeClass('active');
+            //     that = $(this)
+            //     $('.bocc').html("");
+            //     axx.forEach(function(e, i) {
+            //         if (e.startsWith(that.data('id'))) {
+            //             var ccd = $('<li class="ddd">' + e.substr(7) + '</li>');
+            //             $('.bocc').append(ccd);
+            //         }
+            //     })
+            // });
+
+
+
+            // $('.boss li').hover(function() {
+            //     $(this).addClass('activemove').siblings().removeClass('activemove');
+            //     $('.cate li').hover(function() {
+            //         $(this).addClass('activemove').siblings().removeClass('activemove');
+            //     }, function() {
+            //         $(this).removeClass('activemove');
+            //     });
+            // }, function() {
+            //     $(this).removeClass('activemove');
+            //     $('.cate li').hover(function() {
+            //         $(this).addClass('activemove').siblings().removeClass('activemove');
+            //     }, function() {
+            //         $(this).removeClass('activemove');
+            //     });
+            // });
+
+            // console.log(res);
+            var arr = getcode(res);
+            var currentProv;
+            var currentCity;
+            var currentCounty;
+            arr.forEach((item, i) => {
+                $(".boss").append($('<li data-id=' + item.text + ' data-index=' + i + '>' + item.code + '<i class="fa fa-angle-right"></i></li>'))
+            });
+            $(".boss").on('click', 'li', function() {
+                currentProv = arr[$(this).data('index')];
+                // console.log(currentProv);
+                $(".bocc").html("");
+                $(".cate").html("");
+                currentProv.cities.forEach((item, i) => {
+                    $(".cate").append($('<li data-id=' + item.text + ' data-index=' + i + '>' + item.code + '<i class="fa fa-angle-right"></i></li>'))
+                })
+            });
+            $('.cate').on('click', 'li', function() {
+                $(".bocc").html("");
+                currentCity = currentProv.cities[$(this).data('index')];
+                // console.log(currentCity);
+                currentCity.counties.forEach((item, i) => {
+                    $(".bocc").append($('<li data-id=' + item.text + ' data-index=' + i + '>' + item.code + '<i class="fa fa-angle-right"></i></li>'))
+                })
+            });
+            $('.bocc').on('click', 'li', function() {
+                currentCounty = currentCity.counties[$(this).data('index')];
+                console.log(currentProv.code, currentCity.code, currentCounty.code, currentCounty.text);
+            });
+        })
+
+        function getcode(res) {
+            var arr = res.map((item) => ({
+                text: item.split(":")[0],
+                code: item.split(":")[1]
+            }));
+            var prov = arr.filter((item) => item.text.length == 2)
+            var citys = arr.filter((item) => item.text.length == 4)
+            var countys = arr.filter((item) => item.text.length == 6)
+            return prov = prov.map((prov) => ({
+                ...prov,
+                cities: citys.filter((city) => city.text.slice(0, 2) == prov.text)
+                    .map((city) => ({
+                        ...city,
+                        counties: countys.filter((countys) => countys.text.slice(0, 4) == city.text)
+                    }))
+            }));
+        }
+    </script>
+</body>
+
+</html>

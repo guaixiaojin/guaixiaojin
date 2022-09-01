@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./minireset.css">
+    <script src="./jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+    <style>
+        .box {
+            width: 775px;
+            height: 115px;
+            background-color: skyblue;
+            margin: 0 auto;
+        }
+        
+        .box ul {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .box ul li {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            display: flex;
+        }
+        
+        .box ul li.current {
+            width: 224px;
+        }
+        
+        .small {
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: block;
+            user-select: none;
+        }
+        
+        .box ul li.current .small {
+            display: none;
+        }
+        
+        .box ul li.current .big {
+            display: block;
+        }
+        
+        .big {
+            width: 224px;
+            height: 70px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li class="current">
+                <a href="#">
+                    <img src="./images/images/c1.jpg" alt="" class="small">
+                    <img src="./images/images/c.png" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/images/h1.jpg" alt="" class="small">
+                    <img src="./images/images/h.png" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/images/l1.jpg" alt="" class="small">
+                    <img src="./images/images/l.png" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/images/m1.jpg" alt="" class="small">
+                    <img src="./images/images/m.png" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/images/t1.jpg" alt="" class="small">
+                    <img src="./images/images/t.png" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/images/w1.jpg" alt="" class="small">
+                    <img src="./images/images/w.png" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/images/z1.jpg" alt="" class="small">
+                    <img src="./images/images/z.png" alt="" class="big">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        $('.box ul li').mouseenter(function() {
+            $(this).stop().animate({
+                width: 224,
+            }, 200).find('.small').stop().fadeOut().siblings('.big').stop().fadeIn()
+            $(this).siblings().stop().animate({
+                width: 70
+            }, 200).find('.small').stop().fadeIn().siblings('.big').stop().fadeOut();
+        })
+    </script>
+</body>
+
+</html>

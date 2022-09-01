@@ -8,6 +8,9 @@
   left: 0;
   background: linear-gradient(90deg, #5b4099, #e479b2);
   transition: all 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .nav .box {
   width: 220px;
@@ -96,6 +99,66 @@
   transition: all 0.5s ease-in-out;
   transform: rotate(0deg);
 }
+.nav .demo {
+  width: 65%;
+  height: 500px;
+  position: absolute;
+  transition: all 0.5s ease-out;
+  overflow: hidden;
+}
+.nav .demo ul {
+  width: 102%;
+  height: 100%;
+  display: flex;
+  overflow-y: scroll;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.nav .demo ul .works {
+  width: 200px;
+  height: 220px;
+  background-color: pink;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-left: 60px;
+  margin-top: 20px;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.nav .demo ul .works a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.nav .demo ul .works a .title {
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e479b2;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease-out;
+}
+.nav .demo ul .works:hover a .title {
+  bottom: 0;
+}
+.nav .hot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav .hot h1 {
+  font-size: 60px;
+  font-weight: bold;
+}
 .nav.open {
   left: 220px;
 }
@@ -112,5 +175,8 @@
 .nav.open .box .cat {
   transform: rotate(450deg);
   transition: all 0.5s ease-in-out;
+}
+.nav.open .demo {
+  margin-right: 180px;
 }
 /*# sourceMappingURL=./index.css.map */
