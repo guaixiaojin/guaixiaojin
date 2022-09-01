@@ -5,11 +5,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/minireset.css">
+    <link rel="stylesheet" href="./css/hover-min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/lodash.min.js"></script>
     <title>Document</title>
+    <!-- fa-university -->
+    <!--  fa-cog  -->
+    <!-- fa-book -->
+    <!-- a-paper-plane -->
+    <!-- fa-star-o -->
 </head>
 
 <body>
-    <p>这是一个首页</p>
+    <div class="nav">
+        <div class="box">
+            <div class="headSculpture">
+                <img src="./image/1.gif" alt="">
+                <p>昵称：怪小金</p>
+            </div>
+            <div class="option">
+                <ul>
+                    <li class="hvr-bounce-to-right"><a href="Javascript:;"><i class="fa fa-home"></i>首页</a></li>
+                    <li class="hvr-bounce-to-right"><a href="Javascript:;"><i class="fa fa-book"></i>我的作品</a></li>
+                    <li class="hvr-bounce-to-right"><a href="Javascript:;"><i class="fa fa-paper-plane"></i>发布作品</a></li>
+                    <li class="hvr-bounce-to-right"><a href="Javascript:;"><i class="fa fa-star-o"></i>我的收藏</a></li>
+                    <li class="hvr-bounce-to-right"><a href="Javascript:;"><i class="fa fa-cog"></i>设置</a></li>
+                </ul>
+            </div>
+            <button class="cat"><i class="fa fa-bars fa-3x"></i></button>
+        </div>
+    </div>
+    <script>
+        $('.cat').on('click', function() {
+            $(this).prop('disabled', false);
+            if (document.querySelector('.nav').classList.contains('open')) {
+                $('.nav').removeClass('open');
+                var id = setTimeout(function() {
+                    $('.headSculpture>img').css({
+                        transform: 'translateY(-50px)'
+                    })
+                    $('.headSculpture>p').css({
+                        transform: 'translateX(200px)'
+                    })
+                    $('.option ul').children('li:odd').css({
+                        transform: 'translateX(220px)'
+                    })
+                    $('.option ul').children('li:even').css({
+                        transform: 'translateX(-220px)'
+                    })
+                    $('cat').prop('disabled', true);
+                }, 400);
+                clearTimeout(ids);
+            } else {
+                $('.nav').addClass('open');
+                $('.headSculpture>img').css({
+                    transform: 'translateY(0px)'
+                })
+                $('.headSculpture>p').css({
+                    transform: 'translateX(0px)'
+                })
+                var ids = setTimeout(function() {
+                    $('.option ul').children('li:odd').css({
+                        transform: 'translateX(0px)'
+                    })
+                    $('.option ul').children('li:even').css({
+                        transform: 'translateX(0px)'
+                    })
+                    $('cat').prop('disabled', true);
+                }, 400);
+                clearTimeout(id);
+            }
+            // console.log(document.querySelector('.nav').classList.contains('open'));
+        });
+    </script>
 </body>
 
 </html>
