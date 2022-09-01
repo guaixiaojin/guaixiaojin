@@ -21,8 +21,6 @@ body {
   width: 350px;
   height: 330px;
   position: relative;
-  display: flex;
-  justify-content: right;
 }
 .box .header .header-img {
   width: 300px;
@@ -67,6 +65,7 @@ body {
   width: 60px;
   height: 100%;
   margin-right: 10px;
+  float: right;
 }
 .box .header .header-esc span {
   display: block;
