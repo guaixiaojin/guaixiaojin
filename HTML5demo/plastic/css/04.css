@@ -1,0 +1,593 @@
+@media screen and (min-width:321px) and (max-width:375px) {
+    html {
+        font-size: 11px
+    }
+}
+
+@media screen and (min-width:376px) and (max-width:414px) {
+    html {
+        font-size: 12px
+    }
+}
+
+@media screen and (min-width:415px) and (max-width:639px) {
+    html {
+        font-size: 15px
+    }
+}
+
+@media screen and (min-width:640px) and (max-width:719px) {
+    html {
+        font-size: 20px
+    }
+}
+
+@media screen and (min-width:720px) and (max-width:749px) {
+    html {
+        font-size: 22.5px
+    }
+}
+
+@media screen and (min-width:750px) and (max-width:799px) {
+    html {
+        font-size: 23.5px
+    }
+}
+
+@media screen and (min-width:800px) {
+    html {
+        font-size: 25px
+    }
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    font: normal 100% Arial, sans-serif;
+    font-size: 14px;
+    font-size: 1.4rem;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+.header {
+    background-repeat: no-repeat;
+    background-image: url(../image/hero-bg.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.header .wrapper {
+    padding: 150px 0;
+}
+
+.header .wrapper .header-text {
+    font-size: 15px;
+    color: #13a2b7;
+    margin-bottom: 15px;
+}
+
+.header .wrapper h2 {
+    font-size: 30px;
+    display: block;
+    width: 400px;
+}
+
+.offer {
+    padding: 50px 0;
+}
+
+
+/* 組合選擇器 空格表示后代选择器 没有空格 h3.xxx class是xxx并且标签是h3 */
+
+.header-contact {
+    display: block;
+    color: white;
+    width: 140px;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    background-color: green;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.offer h3.section-title,
+.doctors h3.section-title {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.offer .section-title .sub-title,
+.doctors .section-title .sub-title {
+    font-weight: 400;
+    color: #ccc;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.offer .section-title .title,
+.doctors .section-title .title {
+    font-size: 28px;
+}
+
+.service {
+    background-image: url(../image/services-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 50px 0;
+    /* xxx-yyy xxx叫符合属性 */
+    /* 路径http开头的 绝对路径 ./../相对路径 */
+}
+
+.wrapper {
+    width: 1000px;
+    overflow: hidden;
+    margin: 0 auto;
+    /* 块元素居中 需要子元素宽度确定并且小于父元素 子元素设置外边距左右 auto */
+    /* 行内元素居中 用text-align:center */
+}
+
+.cart {
+    width: 220px;
+    text-align: center;
+    float: left;
+    margin: 0 15px 0 15px;
+}
+
+.cart .cart-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.cart .cart-content {
+    font-size: 12px;
+}
+
+
+/* 下一部分 */
+
+.services {
+    display: flex;
+    justify-content: space-between;
+}
+
+.services .sub-title {
+    font-size: 14px;
+    color: green;
+}
+
+.services .title {
+    font-size: 28px;
+    font-weight: bolder;
+    color: white;
+}
+
+.wrapper .contact {
+    display: block;
+    color: white;
+    border: 2px green solid;
+    border-radius: 10px;
+    text-align: center;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.services-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.services-content .content-one {
+    border-radius: 5px;
+    padding: 30px;
+    background-color: #fff;
+    width: 420px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.services-content .content-one .icon {
+    overflow: hidden;
+    /* position: relative; */
+    width: 54px;
+    height: 60px;
+}
+
+.services-content .content-one:hover {
+    background-color: green;
+    color: white !important;
+    transition: all 0.5s linear;
+}
+
+.services-content .content-one img {
+    width: 54px;
+    height: 60px;
+    /* position: relative; */
+    filter: drop-shadow(56px 0 white);
+}
+
+.services-content .content-one:hover img {
+    display: block;
+    transform: translate(-56px, 0);
+}
+
+.services-content .content-one img {
+    width: 54px;
+    height: 60px;
+}
+
+.services-content .content-one div {
+    width: 270px;
+}
+
+.services-content .content-one div p:nth-of-type(1) {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.services-content .content-one div p:nth-of-type(2) {
+    font-size: 15px;
+}
+
+
+/* 下一部分 */
+
+.doctors {
+    padding: 50px;
+}
+
+.doctors .wrapper {
+    width: 1200px;
+}
+
+.team {
+    width: 320px;
+    background-color: #fff;
+    text-align: center;
+    float: left;
+    margin: 0 40px;
+}
+
+.team>img {
+    border-radius: 50%;
+    border: 10px solid white;
+    box-shadow: 0px 0 10px 0px #ccc;
+    /* box-shadow x y偏移 模糊 尺寸 颜色 内外阴影 */
+}
+
+
+/* hover 伪类选择器 鼠标指上去 */
+
+.team img:hover {
+    border: 10px solid cyan;
+    transition: all 0.5s linear;
+}
+
+.team p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.team a {
+    font-size: 15px;
+    color: green;
+    margin-top: 10px;
+    /* 变成大写 */
+    text-transform: uppercase;
+}
+
+.team .team-phone {
+    margin: 15px 0;
+}
+
+.team .team-phone i {
+    margin: 0 10px;
+}
+
+
+/* 下一部分 */
+
+.gallery {
+    overflow: hidden;
+    height: 600px;
+}
+
+.gallery ul.left {
+    width: 75%;
+    float: left;
+    overflow: hidden;
+}
+
+.gallery ul.left li {
+    width: calc(33% - 15px);
+    height: 300px;
+    background-color: lavenderblush;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.gallery .right {
+    width: 25%;
+    height: 615px;
+    background-color: pink;
+    float: right;
+    background-image: url(../image/gallery-4.jpg);
+    background-size: cover;
+    background-position: center top;
+    position: relative;
+}
+
+.gallery ul.left li:nth-of-type(1) {
+    background-image: url(../image/gallery-1.jpg);
+    background-size: cover;
+    background-position: center top;
+}
+
+.gallery ul.left li:nth-of-type(2) {
+    background-image: url(../image/gallery-2.jpg);
+    background-size: cover;
+    background-position: center top;
+}
+
+.gallery ul.left li:nth-of-type(3) {
+    background-image: url(../image/gallery-3.jpg);
+    background-size: cover;
+    background-position: center top;
+}
+
+.gallery ul.left li:nth-of-type(4) {
+    background-image: url(../image/gallery-5.jpg);
+    background-size: cover;
+    background-position: center top;
+}
+
+.gallery ul.left li:nth-of-type(5) {
+    background-image: url(../image/gallery-6.jpg);
+    background-size: cover;
+    background-position: center top;
+}
+
+.gallery ul.left li:nth-of-type(6) {
+    background-image: url(../image/gallery-7.jpg);
+    background-size: cover;
+    background-position: center top;
+}
+
+.gallery ul.left li .icon-img,
+.gallery .right .icon-img1 {
+    width: 100%;
+    height: 100%;
+    line-height: 330px;
+    background-color: green;
+    opacity: .3;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+    display: none;
+    transition: 0.5s all linear !important;
+}
+
+.gallery .right .icon-img1 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.gallery ul.left li .icon-img img,
+.gallery .right .icon-img1 img {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    transform: translate(0, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+
+/* 新闻部分 */
+
+.news {
+    padding: 50px;
+}
+
+.news .wrapper {
+    padding: 20px;
+}
+
+.news .services .title {
+    color: black;
+}
+
+.news .wrapper .contact {
+    color: black;
+}
+
+.news .news-bottom {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.news .news-content {
+    width: 250px;
+    background-color: white;
+    padding: 30px;
+    box-shadow: 1px 0 10px 1px #ddd;
+}
+
+.news .news-content a {
+    font-weight: 600;
+    color: black;
+}
+
+.news .news-content:hover {
+    box-shadow: 1px 0 20px 1px #ccc;
+}
+
+.news .news-content:hover a {
+    text-decoration: underline;
+}
+
+.news .news-content p {
+    font-size: 15px;
+    color: #666666;
+    margin-top: 10px;
+}
+
+.news .news-content div {
+    margin-top: 10px;
+}
+
+.news .news-content div img {
+    border-radius: 25px;
+    vertical-align: middle;
+}
+
+.news .news-content div span {
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+
+/* 尾部 */
+
+.footer {
+    background-color: #121c1d;
+    padding-bottom: 30px;
+}
+
+.footer .footer-top {
+    height: 118px;
+    border-bottom: 1px solid #ccc;
+}
+
+.footer .footer-top .footer-top-centent {
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer .footer-top .footer-top-centent .nav input {
+    box-sizing: border-box;
+    height: 50px;
+    width: 250px;
+    font-size: 16px;
+    border-right: 0;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding-left: 30px;
+    border: 3px solid #13a2b7;
+    outline: none;
+}
+
+.footer .footer-top .footer-top-centent .nav button {
+    color: white;
+    background-color: #13a2b7;
+    border: 1px solid #13a2b7;
+    box-sizing: border-box;
+    height: 50px;
+    width: 125px;
+    font-size: 16px;
+    font-weight: bold;
+    border-left: 0;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    text-transform: uppercase;
+}
+
+.footer .footer-top .footer-top-centent .logo i {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    color: white;
+    background-color: #2a3334;
+    margin-left: 10px;
+}
+
+.footer-center {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 50px 0 50px 0;
+    display: flex;
+    justify-self: start;
+}
+
+.footer-center dl:nth-of-type(2),
+.footer-center dl:nth-of-type(3) {
+    margin-left: 100px;
+}
+
+.footer-center dl:nth-of-type(3) dd {
+    margin-top: 30px;
+}
+
+.footer-center dl dt {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-center dl dd {
+    margin-top: 10px;
+}
+
+.footer-center dl dd a {
+    color: #ddd;
+}
+
+.footer-center dl dd i {
+    color: #13a2b7;
+}
+
+.footer-bottom {
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-bottom div {
+    color: #ccc;
+}
+
+.footer-bottom div i {
+    color: #13a2b7;
+}
+
+.footer-bottom div a {
+    color: #13a2b7;
+}
