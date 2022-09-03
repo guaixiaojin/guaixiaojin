@@ -1,0 +1,61 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e5f8ff;
+}
+.box {
+  height: 40px;
+  padding: 30px;
+  background-color: #0f82b8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  position: relative;
+}
+.box div[class^="bar"] {
+  height: 20px;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 999;
+  cursor: pointer;
+}
+.box div[class^="bar"] i {
+  color: #5fc9fa;
+  font-size: 24px;
+  transform: translateX(20px);
+  transition: all 0.5s ease;
+}
+.box div[class^="bar"] p {
+  transform: translateX(10px);
+  color: #fff;
+  opacity: 0;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+.box div[class^="bar"].active i {
+  transform: translateX(0px);
+  color: #fff;
+}
+.box div[class^="bar"].active p {
+  opacity: 1;
+}
+.box .mark {
+  width: 100px;
+  padding: 20px;
+  height: 40px;
+  transition: all 0.5s ease;
+  border-radius: 10px;
+  background-color: #339dcc;
+  position: absolute;
+  left: 50px;
+  z-index: 1;
+}
+/*# sourceMappingURL=./index.css.map */

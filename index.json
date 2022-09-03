@@ -130,6 +130,10 @@
         "picture": "./image/demoImage/jquery-Tab.PNG",
         "title": "jq选项卡"
     }, {
+        "url": "http://guaixiaojin.github.io/jsdemo/tabBar/",
+        "picture": "./image/demoImage/js-tabBar.PNG",
+        "title": "tab选项"
+    }, {
         "url": "http://guaixiaojin.github.io/jsdemo/BavigationBar/",
         "picture": "./image/demoImage/jquery-BavigationBar.PNG",
         "title": "jq导航栏"
@@ -209,5 +213,13 @@
         "url": "http://guaixiaojin.github.io/jsdemo/RegistrationPage2/",
         "picture": "./image/demoImage/RegistrationPage2.PNG",
         "title": "注册页面2"
+    }, {
+        "url": "http://guaixiaojin.github.io/jsdemo/LoginPage/",
+        "picture": "./image/demoImage/js-LoginPage.PNG",
+        "title": "登录页面"
+    }, {
+        "url": "http://guaixiaojin.github.io/jsdemo/CircularText/",
+        "picture": "./image/demoImage/js-CircularText.PNG",
+        "title": "旋转文字"
     }]
 }

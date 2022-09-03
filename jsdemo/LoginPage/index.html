@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/minireset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>登录页面</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="welcome">Welcome</h1>
+        <div class="form">
+            <input type="text" name="" id="" placeholder="你的账号">
+            <input type="text" name="" id="" placeholder="你的密码">
+            <button class="btn-login">登录</button>
+        </div>
+        <ul class="bg-squares">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <script>
+            var container = document.querySelector('.container');
+            var btnLogin = document.querySelector('.btn-login');
+            btnLogin.onclick = function() {
+                container.classList.add('active');
+            }
+        </script>
+</body>
+
+</html>

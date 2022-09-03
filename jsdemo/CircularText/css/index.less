@@ -1,0 +1,41 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f7e8;
+    overflow: hidden;
+    user-select: none;
+}
+
+.circle{
+    width: 300px;
+    height: 300px;
+    border: 1px red solid;
+    border-radius: 50%;
+    position: relative;
+    color: #62bfad;
+    text-align: center;
+    animation: spin 10s linear infinite;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 5vh;
+    text-transform: uppercase;
+    font-weight: bold;
+    span{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
