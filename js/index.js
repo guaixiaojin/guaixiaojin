@@ -39,7 +39,7 @@ $(function() {
         if (document.querySelector('.nav').classList.contains('open')) {
             $('.nav').removeClass('open');
             var id = setTimeout(function() {
-                $('.headSculpture>img').css({
+                $('.headSculpture>.green_cycle').css({
                     transform: 'translateY(-50px)'
                 })
                 $('.headSculpture>p').css({
@@ -56,7 +56,7 @@ $(function() {
             clearTimeout(ids);
         } else {
             $('.nav').addClass('open');
-            $('.headSculpture>img').css({
+            $('.headSculpture>.green_cycle').css({
                 transform: 'translateY(0px)'
             })
             $('.headSculpture>p').css({

@@ -23,19 +23,74 @@
         // overflow: hidden;
         .headSculpture{
             width: 100%;
-            height: 30%;
+            height: 40%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-top: 40px;
+            margin-top: 30px;
             overflow: hidden;
-            img{
-                width: 120px;
-                height: 120px;
-                border-radius: 50%;
-                transform: translateY(-100px);
-                transition: all 0.5s ease-in-out;
+            // img{
+            //     width: 120px;
+            //     height: 120px;
+            //     border-radius: 50%;
+            //     transform: translateY(-100px);
+            //     transition: all 0.5s ease-in-out;
+            // }
+            .green_cycle{
+                width: 140px;
+                height: 140px;
+                position: relative;
+                transform: translateY(-150px);
+                transition: all 1s ease-in-out;
+                .green_cycle_img{
+                    width: 140px;
+                    height: 140px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    animation:rotates 1s linear infinite;
+                }
+                .yellow_cycle{
+                    width: 120px;
+                    height: 120px;
+                    .yellow_cycle_img{
+                        width: 120px;
+                        height: 120px;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+                        animation:rotates 2s linear reverse infinite;
+                    }
+                    .blue_cycle{
+                        width: 100px;
+                        height: 100px;
+                       .blue_cycle_img{
+                        width: 100px;
+                        height: 100px;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+                        animation:rotates 2s linear infinite;
+                       }
+                        .head_img_div{
+                            width: 80px;
+                            height: 80px;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%,-50%);
+                            .head_img{
+                                width: 100%;
+                                height: 100%;
+                                border-radius: 50%;
+                            }
+                        }
+                    }
+                }
             }
             p{
                 display: block;
@@ -48,8 +103,8 @@
                 border-radius: 20px;
                 margin-top: 10px;
                 font-weight: bold;
-                transform: translateX(200px);
-                transition: all 0.5s ease-in-out;
+                transform: translateX(300px);
+                transition: all 1s ease-in-out;
             }
         }
         .option{
@@ -62,7 +117,7 @@
                     height: 30px;
                     display: flex;
                     align-items: center;
-                    transition: all 0.5s ease-in-out;
+                    transition: all 1s ease-in-out;
                     a{
                         color: #d0d1d7;
                        i{
@@ -91,6 +146,7 @@
             color: #be04a7;
             background-color: rgba(0, 0, 0, 0);
             position: absolute;
+            z-index: 9999;
             top: 0;
             right: -60px;
             cursor: pointer;
@@ -107,7 +163,7 @@
         transition: all 0.5s ease-out;
         overflow: hidden;
         ul{
-            width: 102%;
+            width: 103%;
             height: 100%;
             display: flex;
             overflow-y: scroll;
@@ -122,7 +178,7 @@
             position: relative;
             border-radius: 10px;
             overflow: hidden;
-            margin-left: 60px;
+            margin-left: 40px;
             margin-top: 20px;
             background-position: top center;
             background-repeat: no-repeat;
@@ -448,5 +504,14 @@
     // }
     100%{
         opacity: 1;
+    }
+}
+
+@keyframes rotates {
+    0%{
+        transform:translate(-50%,-50%) rotate(0deg);
+    }
+    100%{
+        transform:translate(-50%,-50%) rotate(360deg);
     }
 }
