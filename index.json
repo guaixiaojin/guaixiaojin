@@ -114,10 +114,6 @@
         "picture": "./image/demoImage/jquery-Tab.PNG",
         "title": "jq选项卡"
     }, {
-        "url": "http://guaixiaojin.github.io/jsdemo/tabBar/",
-        "picture": "./image/demoImage/js-tabBar.PNG",
-        "title": "tab选项"
-    }, {
         "url": "http://guaixiaojin.github.io/jsdemo/BavigationBar/",
         "picture": "./image/demoImage/jquery-BavigationBar.PNG",
         "title": "jq导航栏"
@@ -173,10 +169,6 @@
         "url": "http://guaixiaojin.github.io/jsdemo/books/",
         "picture": "./image/demoImage/books.PNG",
         "title": "图书馆"
-    }, {
-        "url": "http://guaixiaojin.github.io/jsdemo/accordion/",
-        "picture": "./image/demoImage/jquery-accordion.PNG",
-        "title": "jquery手风琴"
     }, {
         "url": "http://guaixiaojin.github.io/jsdemo/PixelClock/",
         "picture": "./image/demoImage/PixelClock.PNG",

@@ -1,6 +1,11 @@
 body {
   background-color: var(--clr);
-  min-height: 100vw;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
 }
 :root {
   --clr: #393939;
@@ -11,7 +16,7 @@ body {
   background-color: #e4dccf;
   border-radius: 10px;
   position: relative;
-  margin: 200px auto;
+  margin: 0px auto;
 }
 .navigation ul {
   position: relative;
@@ -86,5 +91,102 @@ body {
   border-top-left-radius: 16px;
   box-shadow: 0px -10px 0 0 var(--clr);
   z-index: 2;
+}
+.box {
+  height: 40px;
+  padding: 10px 30px;
+  background-color: #0f82b8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  position: relative;
+}
+.box div[class^="bar"] {
+  height: 20px;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 999;
+  cursor: pointer;
+}
+.box div[class^="bar"] i {
+  color: #5fc9fa;
+  font-size: 24px;
+  transform: translateX(20px);
+  transition: all 0.5s ease;
+}
+.box div[class^="bar"] p {
+  transform: translateX(10px);
+  color: #fff;
+  opacity: 0;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+.box div[class^="bar"].active i {
+  transform: translateX(0px);
+  color: #fff;
+}
+.box div[class^="bar"].active p {
+  opacity: 1;
+}
+.box .mark {
+  width: 80px;
+  padding: 8px;
+  height: 20px;
+  transition: all 0.5s ease;
+  border-radius: 10px;
+  background-color: #339dcc;
+  position: absolute;
+  left: 50px;
+  z-index: 1;
+}
+.box2 {
+  width: 775px;
+  height: 115px;
+  margin: 0 auto;
+}
+.box2 ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.box2 ul li {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  display: flex;
+}
+.box2 ul li a .small {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  user-select: none;
+}
+.box2 ul li a .big {
+  width: 224px;
+  height: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  user-select: none;
+}
+.box2 ul li.current {
+  width: 224px;
+}
+.box2 ul li.current a .small {
+  display: none;
+}
+.box2 ul li.current a .big {
+  display: block;
 }
 /*# sourceMappingURL=./index.css.map */
