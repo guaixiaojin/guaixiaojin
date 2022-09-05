@@ -1,3 +1,6 @@
+* {
+  user-select: none;
+}
 .nav {
   display: inline-block;
   width: 100%;
