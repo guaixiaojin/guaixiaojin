@@ -39,7 +39,7 @@
   width: 140px;
   height: 140px;
   position: relative;
-  transform: translateY(-150px);
+  transform: translateY(0px);
   transition: all 1s ease-in-out;
 }
 .nav .box .headSculpture .green_cycle .green_cycle_img {
@@ -101,7 +101,7 @@
   border-radius: 20px;
   margin-top: 10px;
   font-weight: bold;
-  transform: translateX(300px);
+  transform: translateX(0px);
   transition: all 1s ease-in-out;
 }
 .nav .box .option {
@@ -125,10 +125,10 @@
   margin: 0 30px;
 }
 .nav .box .option ul li:nth-of-type(odd) {
-  transform: translateX(220px);
+  transform: translateX(0px);
 }
 .nav .box .option ul li:nth-of-type(even) {
-  transform: translateX(-220px);
+  transform: translateX(0px);
 }
 .nav .box .option ul li::before {
   background-color: #ffc0cb;

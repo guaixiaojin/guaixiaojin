@@ -29,10 +29,6 @@
         "title": "整形主页"
     }],
     "worksCSS3": [{
-        "url": "http://guaixiaojin.github.io/cssdemo/hoverEffectOne/",
-        "picture": "./image/demoImage/hoverEffect0ne.PNG",
-        "title": "hover按钮特效"
-    }, {
         "url": "http://guaixiaojin.github.io/cssdemo/hoverNavigationBar/",
         "picture": "./image/demoImage/hoverNavigationBar.PNG",
         "title": "hover导航栏"
@@ -77,14 +73,6 @@
         "picture": "./image/demoImage/css3FlipTheCard.PNG",
         "title": "翻转卡片"
     }, {
-        "url": "http://guaixiaojin.github.io/cssdemo/css3Share/",
-        "picture": "./image/demoImage/css3Share.PNG",
-        "title": "分享按钮"
-    }, {
-        "url": "http://guaixiaojin.github.io/cssdemo/GoogleLoad/",
-        "picture": "./image/demoImage/GoogleLoad.PNG",
-        "title": "谷歌加载动画"
-    }, {
         "url": "http://guaixiaojin.github.io/cssdemo/SphericalRippleEffect/",
         "picture": "./image/demoImage/SphericalRippleEffect.PNG",
         "title": "水球波纹效果"
@@ -96,10 +84,6 @@
         "url": "http://guaixiaojin.github.io/cssdemo/accordion/",
         "picture": "./image/demoImage/accordion.PNG",
         "title": "css3手风琴"
-    }, {
-        "url": "http://guaixiaojin.github.io/cssdemo/accordion2/",
-        "picture": "./image/demoImage/accordion2.PNG",
-        "title": "css3手风琴2"
     }, {
         "url": "http://guaixiaojin.github.io/cssdemo/SpecialEffectInterface/",
         "picture": "./image/demoImage/SpecialEffectInterface.PNG",
