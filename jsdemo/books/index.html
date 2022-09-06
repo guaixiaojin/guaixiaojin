@@ -251,17 +251,22 @@
                 $('.doxx').html("");
                 res.data.forEach(function(e, i) {
                     console.log(e);
-                    var li = document.createElement('li');
-                    var img = document.createElement('img');
-                    var p = document.createElement('p');
-                    var span = document.createElement('span');
-                    img.src = e.vertical_cover;
-                    p.innerHTML = e.title;
-                    span.innerHTML = '更新至' + e.last_short_title;
-                    li.appendChild(img);
-                    li.appendChild(p);
-                    li.appendChild(span);
-                    $('.doxx').append(li);
+                    // var li = document.createElement('li');
+                    // var img = document.createElement('img');
+                    // var p = document.createElement('p');
+                    // var span = document.createElement('span');
+                    // img.src = e.vertical_cover;
+                    // p.innerHTML = e.title;
+                    // span.innerHTML = '更新至' + e.last_short_title;
+                    // li.appendChild(img);
+                    // li.appendChild(p);
+                    // li.appendChild(span);
+                    // $('.doxx').append(li);
+                    $('.doxx').append(`<li>
+                    <img src="${e.vertical_cover}"/>
+                    <p>${e.last_short_title}</p>
+                    <span>更新至${e.last_short_title}</span>
+                    </li>`);
                 });
             });
         }
