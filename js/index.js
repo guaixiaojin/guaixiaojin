@@ -32,7 +32,14 @@ $(function() {
         a.appendChild(div2);
         div.appendChild(a);
         // console.log(div);
-        demo[n].children[0].appendChild(div)
+        demo[n].children[0].appendChild(div);
+        // demo[n].children[0].innerHTML = `<div class="works" style="background-image:${item.picture}">
+        // <a href="${item.url}">
+        // <div class="title">
+        // <p>${item.title}</p>
+        // <div>
+        // </a>
+        // </div>`;
     }
     $('.cat').on('click', function() {
         $(this).prop('disabled', false);

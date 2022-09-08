@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/minireset.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/icon.css">
     <link rel="shortcut icon" href="../../image/bitbug_favicon.ico">
     <title>幽灵按钮</title>
 </head>
@@ -25,6 +26,76 @@
         </div>
         <button class="button3">取消</button>
     </div>
+    <div class="thumbs">
+        <div class="title">
+            长按点赞,一键三连,白嫖使我快乐。
+        </div>
+        <div class="box">
+            <div class="icon">
+                <i class="iconfont icon-dianzan"></i>
+                <div class="shine">
+                    <span style="--i:1"></span>
+                    <span style="--i:2"></span>
+                    <span style="--i:3"></span>
+                    <span style="--i:4"></span>
+                    <span style="--i:5"></span>
+                    <span style="--i:6"></span>
+                    <span style="--i:7"></span>
+                    <span style="--i:8"></span>
+                    <span style="--i:9"></span>
+                    <span style="--i:10"></span>
+                    <span style="--i:11"></span>
+                    <span style="--i:12"></span>
+                    <span style="--i:13"></span>
+                    <span style="--i:14"></span>
+                    <span style="--i:15"></span>
+                    <span style="--i:16"></span>
+                </div>
+            </div>
+            <div class="icon">
+                <i class="iconfont icon-toubi"></i>
+                <div class="shine">
+                    <span style="--i:1"></span>
+                    <span style="--i:2"></span>
+                    <span style="--i:3"></span>
+                    <span style="--i:4"></span>
+                    <span style="--i:5"></span>
+                    <span style="--i:6"></span>
+                    <span style="--i:7"></span>
+                    <span style="--i:8"></span>
+                    <span style="--i:9"></span>
+                    <span style="--i:10"></span>
+                    <span style="--i:11"></span>
+                    <span style="--i:12"></span>
+                    <span style="--i:13"></span>
+                    <span style="--i:14"></span>
+                    <span style="--i:15"></span>
+                    <span style="--i:16"></span>
+                </div>
+            </div>
+            <div class="icon">
+                <i class="iconfont icon-shoucang"></i>
+                <div class="shine">
+                    <span style="--i:1"></span>
+                    <span style="--i:2"></span>
+                    <span style="--i:3"></span>
+                    <span style="--i:4"></span>
+                    <span style="--i:5"></span>
+                    <span style="--i:6"></span>
+                    <span style="--i:7"></span>
+                    <span style="--i:8"></span>
+                    <span style="--i:9"></span>
+                    <span style="--i:10"></span>
+                    <span style="--i:11"></span>
+                    <span style="--i:12"></span>
+                    <span style="--i:13"></span>
+                    <span style="--i:14"></span>
+                    <span style="--i:15"></span>
+                    <span style="--i:16"></span>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         const button3 = document.querySelector('.button3');
         button3.addEventListener('click', (e) => {
@@ -36,6 +107,75 @@
                 span.remove();
             }, 1000);
         });
+
+        let timer_start = null;
+        let timer_end = null;
+        let is_long = true;
+        let mouse_down_time = 0;
+        let mouse_up_time = 0;
+        const icon = document.querySelectorAll('.icon');
+        icon.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                if (index == 0) {
+                    if (!is_long) {
+                        item.classList.toggle('light');
+                    }
+                } else {
+                    item.classList.toggle('light');
+                }
+            });
+        });
+
+        icon[0].addEventListener('mousedown', () => {
+            mouse_down_time = new Date().getTime();
+            // console.log(mouse_down_time);
+            timer_start = setTimeout(() => {
+                icon.forEach((item, index) => {
+                    if (index == 0) {
+                        item.classList.add('shake');
+                    } else {
+                        item.classList.add('loading');
+                    }
+                })
+            }, 500);
+            timer_end = setTimeout(() => {
+                icon.forEach((item, index) => {
+                    item.classList.remove('shake');
+                    item.classList.remove('loading');
+                    item.classList.add('bang');
+                    item.classList.add('light');
+                });
+                setTimeout(() => {
+                    icon.forEach((item, index) => {
+                        item.classList.remove('bang');
+                    });
+                }, 1000);
+            }, 3500);
+        })
+
+        icon[0].addEventListener('mouseup', () => {
+            mouse_up_time = new Date().getTime();
+            if (mouse_up_time - mouse_down_time > 300) {
+                is_long = true;
+            } else {
+                is_long = false;
+            }
+
+            if (timer_start) {
+                clearTimeout(timer_start);
+            }
+
+            if (mouse_up_time - mouse_down_time < 3500) {
+                icon.forEach((item, index) => {
+                    item.classList.remove('shake');
+                    item.classList.remove('loading');
+                });
+                if (timer_end) {
+                    clearTimeout(timer_end);
+                    timer_end = null;
+                }
+            }
+        })
     </script>
 </body>
 
