@@ -201,5 +201,10 @@
         "url": "http://guaixiaojin.github.io/jsdemo/CircularText/",
         "picture": "./image/demoImage/js-CircularText.PNG",
         "title": "旋转文字"
+    }],
+    "workvue": [{
+        "url": "http://guaixiaojin.github.io/vuedemo/kuwo/dist/",
+        "picture": "./image/demoImage/kuwo.PNG",
+        "title": "酷我音乐"
     }]
 }

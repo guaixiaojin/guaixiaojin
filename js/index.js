@@ -16,6 +16,9 @@ $(function() {
             clones(item, 3);
         });
 
+        res.workvue.forEach((item, i) => {
+            clones(item, 4)
+        })
     })
 
     function clones(item, n) {
