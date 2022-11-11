@@ -205,10 +205,14 @@
     "workvue": [{
         "url": "http://guaixiaojin.github.io/vuedemo/kuwo/dist/",
         "picture": "./image/demoImage/kuwo.PNG",
-        "title": "酷我音乐"
+        "title": "库我音乐"
     }, {
         "url": "http://guaixiaojin.github.io/vuedemo/maoyfm/",
         "picture": "./image/demoImage/myfm.jpg",
         "title": "猫耳FM"
+    }, {
+        "url": "http://guaixiaojin.github.io/vuedemo/qsbk/",
+        "picture": "./image/demoImage/ic_launcher.png",
+        "title": "糗事小百科"
     }]
 }
