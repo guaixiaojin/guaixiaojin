@@ -211,7 +211,7 @@
         "picture": "./image/demoImage/myfm.jpg",
         "title": "猫耳FM"
     }, {
-        "url": "http://guaixiaojin.github.io/vuedemo/qsbk/",
+        "url": "http://guaixiaojin.github.io/vuedemo/qsbk/dist/",
         "picture": "./image/demoImage/ic_launcher.png",
         "title": "糗事小百科"
     }]
